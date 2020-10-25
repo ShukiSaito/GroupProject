@@ -16,5 +16,4 @@
   - Shuki Saito
   
   #### Weekly Meeting Time and Format
-    - Format: Microsoft Team
-    - Date: Saturday 11am
+  Saturday 11am on MS Team
