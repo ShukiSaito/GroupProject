@@ -9,6 +9,7 @@ This Application helps in choosing players for Fantasy Soccer, per week.
 ## Requirements
 
 As a fantasy fan, i would like to be able to search for players in a specific position to strengthen the lineups.
+I would also like to determine how expensive a specific player would be to acquire for my replacement.
 
 ## Data sources
 - Player Data
