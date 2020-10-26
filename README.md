@@ -5,7 +5,6 @@
 ## Introduction
 
 This Application helps in choosing players for Fantasy Soccer, per week.
-You can check the information below in this app.
 
 ## Requirements
 
