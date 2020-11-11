@@ -2,9 +2,37 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
 }
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+    <hi class="display-4"> Player Info</hi>
+    <hr />
+    <table border="1" width="90%">
+        <tr><th>Player Name</th><th>Team Name</th><th>Data Joining Team</th></tr>
+        @{
+            foreach (QuickType.PlayerInfo playerInfo in playerInfos)
+            {
+                <tr>
+                    <td>@playerInfo.PlayerName</td>
+                    <td>@playerInfo.TeamName</td>
+                    <td>@playerInfo.StartDate</td>
+                    
+                </tr>
+
+            }
+
+        }
+
+
+    </table>
+
+
+
 </div>

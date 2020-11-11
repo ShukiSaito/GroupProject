@@ -1,0 +1,95 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/PlayerInfoElement"
+  },
+  "definitions": {
+    "PlayerInfoElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MembershipId": {
+          "type": "integer"
+        },
+        "TeamId": {
+          "type": "integer",
+          "minmum": 0
+
+        },
+        "PlayerId": {
+          "type": "integer"
+        },
+        "PlayerName": {
+          "type": "string"
+        },
+        "TeamName": {
+          "$ref": "#/definitions/TeamName"
+        },
+        "TeamArea": {
+          "$ref": "#/definitions/TeamArea"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "StartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "EndDate": {
+          "type": "null"
+        },
+        "Updated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "Active",
+        "EndDate",
+        "MembershipId",
+        "PlayerId",
+        "PlayerName",
+        "StartDate",
+        "TeamArea",
+        "TeamId",
+        "TeamName",
+        "Updated"
+      ],
+      "title": "PlayerInfoElement"
+    },
+    "TeamArea": {
+      "type": "string",
+      "enum": [
+        "England"
+      ],
+      "title": "TeamArea"
+    },
+    "TeamName": {
+      "type": "string",
+      "enum": [
+        "Arsenal FC",
+        "Aston Villa FC",
+        "Chelsea FC",
+        "Crystal Palace FC",
+        "Everton FC",
+        "Leicester City FC",
+        "Liverpool FC",
+        "Manchester City FC",
+        "Manchester United FC",
+        "Newcastle United FC",
+        "Southampton FC",
+        "Tottenham Hotspur FC",
+        "West Ham United FC",
+        "Burnley FC",
+        "West Bromwich Albion FC",
+        "Brighton & Hove Albion FC",
+        "Fulham FC",
+        "Wolverhampton Wanderers FC",
+        "Sheffield United FC",
+        "Leeds United FC"
+      ],
+      "title": "TeamName"
+    }
+  }
+}
