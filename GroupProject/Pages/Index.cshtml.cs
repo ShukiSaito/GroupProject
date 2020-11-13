@@ -25,6 +25,8 @@ namespace GroupProject.Pages
         {
             using(var webClient = new WebClient())
             {
+               
+
                 IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
                 String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
                 QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
