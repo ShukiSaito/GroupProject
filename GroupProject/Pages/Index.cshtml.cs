@@ -23,40 +23,40 @@ namespace GroupProject.Pages
 
         public void OnGet()
         {
-            using(var webClient = new WebClient())
+            using (var webClient = new WebClient())
             {
-               
-
                 //IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
                 //String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
-                // QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(json: playersJSON);
+                //QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
                 //foreach (QuickTypePlayerDetails.PlayerDetail player in playerDetails)
                 //{
                 //    allplayers.Add(player.PlayerId, player);
                 //}
 
-                string PlayerMembership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
+
+
+                string playerMembership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray jarray = JArray.Parse(PlayerMembership);
+                JArray jarray = JArray.Parse(playerMembership);
                 IList<string> validationEvents = new List<string>();
                 if (jarray.IsValid(schema, out validationEvents))
                 {
-                    var playerinfo = PlayerInfo.FromJson(PlayerMembership);
-                   
-                  
+                    var playerinfo = PlayerInfo.FromJson(playerMembership);
+
+
                     ViewData["PlayerInfo"] = playerinfo;
-                    
+
                 }
                 else
                 {
-                    foreach(string evt in validationEvents)
+                    foreach (string evt in validationEvents)
                     {
                         Console.WriteLine(evt);
 
                     }
                     ViewData["PlayerInfo"] = new List<PlayerInfo>();
                 }
-                
+
             }
 
         }
