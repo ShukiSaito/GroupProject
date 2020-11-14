@@ -7,10 +7,6 @@
 
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-</div>
-
-<div class="text-center">
     <h4 class="display-4"> Player Information</h4>
     <hr>
     <table border="1" width="90%">
@@ -18,10 +14,18 @@
         @{
             foreach (QuickType.PlayerInfo playerInfo in playerInfos)
             {
+                string date = playerInfo.StartDate.ToString();
+                string[] dars = date.Split('/'); 
+                string day = dars[0]; 
+                string month = dars[1]; 
+                string year = dars[2]; 
+                string[] year1 = year.Split(' '); 
+                string yearclean = year1[0]; 
+
                 <tr>
                     <td>@playerInfo.PlayerName</td>
                     <td>@playerInfo.TeamName</td>
-                    <td>@playerInfo.StartDate</td>
+                    <td>@day/@month/@yearclean</td>
                     
                 </tr>
             }
