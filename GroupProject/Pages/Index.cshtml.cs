@@ -33,15 +33,13 @@ namespace GroupProject.Pages
                 //    allplayers.Add(player.PlayerId, player);
                 //}
 
-
-
-                string playerMembership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
+                string Membership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray jarray = JArray.Parse(playerMembership);
+                JArray jarray = JArray.Parse(Membership);
                 IList<string> validationEvents = new List<string>();
                 if (jarray.IsValid(schema, out validationEvents))
                 {
-                    var playerinfo = PlayerInfo.FromJson(playerMembership);
+                    var playerinfo = PlayerInfo.FromJson(Membership);
 
 
                     ViewData["PlayerInfo"] = playerinfo;
