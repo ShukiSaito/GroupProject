@@ -23,7 +23,7 @@ namespace GroupProject.Pages
 
         public void OnGet()
         {
-            using(var webClient = new WebClient())
+            using (var webClient = new WebClient())
             {
                 //IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
                 //String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
@@ -42,21 +42,21 @@ namespace GroupProject.Pages
                 if (jarray.IsValid(schema, out validationEvents))
                 {
                     var playerinfo = PlayerInfo.FromJson(Membership);
-                   
-                  
+
+
                     ViewData["PlayerInfo"] = playerinfo;
-                    
+
                 }
                 else
                 {
-                    foreach(string evt in validationEvents)
+                    foreach (string evt in validationEvents)
                     {
                         Console.WriteLine(evt);
 
                     }
                     ViewData["PlayerInfo"] = new List<PlayerInfo>();
                 }
-                
+
             }
 
         }
