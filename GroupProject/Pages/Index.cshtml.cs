@@ -25,21 +25,21 @@ namespace GroupProject.Pages
         {
             using(var webClient = new WebClient())
             {
-                IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
-                String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
-                QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
-                
+                //IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
+                //String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
+                //QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
+                //foreach (QuickTypePlayerDetails.PlayerDetail player in playerDetails)
+                //{
+                //    allplayers.Add(player.PlayerId, player);
+                //}
 
-                foreach (QuickTypePlayerDetails.PlayerDetail player in playerDetails)
-                {
-                    allplayers.Add(player.PlayerId, player);
-                }
+
 
                 string Membership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray jsonObject = JArray.Parse(Membership);
+                JArray jarray = JArray.Parse(Membership);
                 IList<string> validationEvents = new List<string>();
-                if (jsonObject.IsValid(schema, out validationEvents))
+                if (jarray.IsValid(schema, out validationEvents))
                 {
                     var playerinfo = PlayerInfo.FromJson(Membership);
                    
