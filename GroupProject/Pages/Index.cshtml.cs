@@ -29,7 +29,7 @@ namespace GroupProject.Pages
 
                 //IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
                 //String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
-               // QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(json: playersJSON);
+                // QuickTypePlayerDetails.PlayerDetail[] playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(json: playersJSON);
                 //foreach (QuickTypePlayerDetails.PlayerDetail player in playerDetails)
                 //{
                 //    allplayers.Add(player.PlayerId, player);
@@ -37,9 +37,9 @@ namespace GroupProject.Pages
 
                 string PlayerMembership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray jsonObject = JArray.Parse(PlayerMembership);
+                JArray jarray = JArray.Parse(PlayerMembership);
                 IList<string> validationEvents = new List<string>();
-                if (jsonObject.IsValid(schema, out validationEvents))
+                if (jarray.IsValid(schema, out validationEvents))
                 {
                     var playerinfo = PlayerInfo.FromJson(PlayerMembership);
                    
