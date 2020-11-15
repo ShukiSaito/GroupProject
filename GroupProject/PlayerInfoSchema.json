@@ -21,10 +21,14 @@
           "type": "integer"
         },
         "PlayerName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 4,
+          "maxLength":  45
         },
         "TeamName": {
-          "$ref": "#/definitions/TeamName"
+          "$ref": "#/definitions/TeamName",
+          "minLength": 5,
+          "maxLength":  40
         },
         "TeamArea": {
           "$ref": "#/definitions/TeamArea"
