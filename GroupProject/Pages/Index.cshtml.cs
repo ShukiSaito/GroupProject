@@ -29,10 +29,12 @@ namespace GroupProject.Pages
                 IDictionary<long, QuickTypePlayerDetails.PlayerDetail> allplayers = new Dictionary<long, QuickTypePlayerDetails.PlayerDetail>();
                 String playersJSON = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/CompetitionDetails/EPL?key=bc49021bad1943008414c5a75e665961");
                 //Console.WriteLine(playersJSON);
-                QuickTypePlayerDetails.PlayerDetail playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
-                foreach (QuickTypePlayerDetails.PlayerDetail player in playerDetails)
+                var playerDetails = QuickTypePlayerDetails.PlayerDetail.FromJson(playersJSON);
+                var ut = playerDetails.Teams;
+                var i= ut
+                foreach (QuickTypePlayerDetails.PlayerDetail player in ut)
                 {
-                    allplayers.Add(player.PlayerId, player);
+                    allplayers.Add(player.Teams, player);
                 }
 
 
