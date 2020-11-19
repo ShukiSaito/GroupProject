@@ -46,17 +46,23 @@ namespace GroupProject.Pages
                 string Membership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
                 JArray jarray = JArray.Parse(Membership);
-                List<PlayerInfo> waterMeSpecimens = new List<PlayerInfo>();
+                
+                
                 IList<string> validationEvents = new List<string>();
                 if (jarray.IsValid(schema, out validationEvents))
                 {
                     var playerinfo = PlayerInfo.FromJson(Membership);
-                    foreach(var playerin in playerinfo)
+                    List<PlayerInfo> Playergather = new List<PlayerInfo>();
+                    foreach (var playerin in playerinfo)
                     {
-                        waterMeSpecimens.Add(playerin);
+                        if (allinfo.ContainsKey(playerin.PlayerId))
+                        {
+                            Playergather.Add(playerin);
+                        }
+                            
                     }
 
-                    ViewData["PlayerInfo"] = waterMeSpecimens;
+                    ViewData["PlayerInfo"] = Playergather;
                     
                 }
                 else
