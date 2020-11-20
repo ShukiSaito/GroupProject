@@ -53,6 +53,7 @@ namespace GroupProject.Pages
                 {
                     var playerinfo = PlayerInfo.FromJson(Membership);
                     List<PlayerInfo> Playergather = new List<PlayerInfo>();
+
                     foreach (var playerin in playerinfo)
                     {
                         if (allinfo.ContainsKey(playerin.PlayerId))
