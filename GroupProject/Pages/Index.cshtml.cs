@@ -7,16 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Schema;
 using QuickType;
-using QuickTypePlayerDetails;
-//using QuickTypePlayerDetails;
+using QuickTypePlayerStats;
+
 
 namespace GroupProject.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        //private object webClient;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -25,59 +25,24 @@ namespace GroupProject.Pages
 
         public void OnGet()
         {
-            using(var webClient = new WebClient())
+            using (var webClient = new WebClient())
             {
-                IDictionary<long, QuickTypePlayerDetails.PlayerStats> allinfo = new Dictionary<long, QuickTypePlayerDetails.PlayerStats>();
-                String playersStats = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/stats/json/PlayerSeasonStats/383?key=bc49021bad1943008414c5a75e665961");
-
-               var playersStats1 = QuickTypePlayerDetails.PlayerStats.FromJson(playersStats);
-               //var detailed = playersStats1.;
-                
-                
-                foreach (var player in playersStats1)
-                {
-                    allinfo.Add(player.PlayerId, player);
-
-                }
-                ViewData["allinfo"] = allinfo;
+                string playersStats = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/stats/json/PlayerSeasonStats/383?key=bc49021bad1943008414c5a75e665961");
 
 
+                var playerstat = PlayerInfo.FromJson(playersStats);
 
-                string Membership = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
-                JSchema schema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray jarray = JArray.Parse(Membership);
-                
-                
-                IList<string> validationEvents = new List<string>();
-                if (jarray.IsValid(schema, out validationEvents))
-                {
-                    var playerinfo = PlayerInfo.FromJson(Membership);
-                    List<PlayerInfo> Playergather = new List<PlayerInfo>();
+                ViewData["PlayerInfo"] = playerstat;
 
-                    foreach (var playerin in playerinfo)
-                    {
-                        if (allinfo.ContainsKey(playerin.PlayerId))
-                        {
-                            Playergather.Add(playerin);
-                        }
-                            
-                    }
+                string playerall = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
 
-                    ViewData["PlayerInfo"] = Playergather;
-                    
-                }
-                else
-                {
-                    foreach(string evt in validationEvents)
-                    {
-                        Console.WriteLine(evt);
 
-                    }
-                    ViewData["PlayerInfo"] = new List<PlayerInfo>();
-                }
+                var playeralls = PlayerStats.FromJson(playerall);
+
+                ViewData["PlayerStats"] = playeralls;
+
                 
             }
-
         }
     }
 }

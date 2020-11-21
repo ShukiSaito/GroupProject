@@ -2,12 +2,11 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    //var playerInfos = (QuickType.PlayerInfo[])ViewData["allinfo"];
-    List<QuickType.PlayerInfo> playerInfos = (List<QuickType.PlayerInfo>)ViewData["playerInfo"];
-    List<QuickTypePlayerDetails.PlayerStats> playerInfosI = (List<QuickTypePlayerDetails.PlayerStats>)ViewData["playerInf"];
-    //var playerDET = (QuickTypePlayerDetails.PlayerStats[])ViewData["allinfo"];
+    var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
+    var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+    //var playeraw = (QuickTypePlayertomm.Playermainin[])ViewData["Playermainin"];
+    //List<QuickType.PlayerInfo> playerInfos = (List<QuickType.PlayerInfo>)ViewData["PlayerInfo"];
 }
-
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
@@ -28,49 +27,32 @@
             </tr>
         </thead>
         @{
+
             foreach (var playerInfo in playerInfos)
+            // if(playerInfo.PlayerId != null)
             {
+               
+              
+                    foreach (var x in playerall)
 
-                //int count = 0;
-
-
-                foreach (var playerInf in playerInfosI)
-                if (playerInf.PlayerId != null)
-                {
-                    //count = count + 1;
-                    if (playerInfo.PlayerId == playerInf.PlayerId)
                     {
+                        if (playerInfo.PlayerId == x.PlayerId)
+                        {
                             <tr>
-                                <td>@playerInfo.PlayerName</td>
-                                <td>@playerInfo.TeamName</td>
-                                <td>@playerInfo.StartDate</td>
-                                <td>@playerInf.Goals</td>
-                                <td>@playerInf.Assists</td>
+                                <td>@x.PlayerName</td>
+                                <td>@x.TeamName</td>
+                                <td>@x.StartDate</td>
+                                <td>@playerInfo.Goals</td>
+                                <td>@playerInfo.Assists</td>
+                                <td>-</td>
+
+
 
                             </tr>
-                    }
-
-                    else
-                        if (playerInfo.PlayerId == playerInf.PlayerId)
-                    {
-                        <tr>
-                            <td>@playerInfo.PlayerName</td>
-                            <td>@playerInfo.TeamName</td>
-                            <td>@playerInfo.StartDate</td>
-                            <td>-</td>
-                            <td>-</td>
-
-                        </tr>
                         }
-
                     }
-
-                }
+                
             }
-
-
+        }
     </table>
-
-
-
 </div>
