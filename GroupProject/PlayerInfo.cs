@@ -17,8 +17,17 @@ namespace QuickType
 
     public partial class PlayerInfo
     {
-        [JsonProperty("MembershipId")]
-        public long MembershipId { get; set; }
+        [JsonProperty("StatId")]
+        public long StatId { get; set; }
+
+        [JsonProperty("SeasonType")]
+        public long SeasonType { get; set; }
+
+        [JsonProperty("Season")]
+        public long Season { get; set; }
+
+        [JsonProperty("RoundId")]
+        public long RoundId { get; set; }
 
         [JsonProperty("TeamId")]
         public long TeamId { get; set; }
@@ -26,31 +35,157 @@ namespace QuickType
         [JsonProperty("PlayerId")]
         public long PlayerId { get; set; }
 
-        [JsonProperty("PlayerName")]
-        public string PlayerName { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
 
-        [JsonProperty("TeamName")]
-        public TeamName TeamName { get; set; }
+        [JsonProperty("ShortName")]
+        public string ShortName { get; set; }
 
-        [JsonProperty("TeamArea")]
-        public TeamArea TeamArea { get; set; }
+        [JsonProperty("Team")]
+        public Team Team { get; set; }
 
-        [JsonProperty("Active")]
-        public bool Active { get; set; }
+        [JsonProperty("PositionCategory")]
+        public Position PositionCategory { get; set; }
 
-        [JsonProperty("StartDate")]
-        public DateTimeOffset StartDate { get; set; }
+        [JsonProperty("Position")]
+        public Position Position { get; set; }
 
-        [JsonProperty("EndDate")]
-        public object EndDate { get; set; }
+        [JsonProperty("Started")]
+        public long Started { get; set; }
+
+        [JsonProperty("GlobalTeamId")]
+        public long GlobalTeamId { get; set; }
 
         [JsonProperty("Updated")]
         public DateTimeOffset Updated { get; set; }
+
+        [JsonProperty("UpdatedUtc")]
+        public DateTimeOffset UpdatedUtc { get; set; }
+
+        [JsonProperty("Games")]
+        public long Games { get; set; }
+
+        [JsonProperty("FantasyPoints")]
+        public double FantasyPoints { get; set; }
+
+        [JsonProperty("FantasyPointsFanDuel")]
+        public object FantasyPointsFanDuel { get; set; }
+
+        [JsonProperty("FantasyPointsDraftKings")]
+        public double FantasyPointsDraftKings { get; set; }
+
+        [JsonProperty("FantasyPointsYahoo")]
+        public object FantasyPointsYahoo { get; set; }
+
+        [JsonProperty("FantasyPointsMondogoal")]
+        public double FantasyPointsMondogoal { get; set; }
+
+        [JsonProperty("Minutes")]
+        public double Minutes { get; set; }
+
+        [JsonProperty("Goals")]
+        public double Goals { get; set; }
+
+        [JsonProperty("Assists")]
+        public double Assists { get; set; }
+
+        [JsonProperty("Shots")]
+        public double Shots { get; set; }
+
+        [JsonProperty("ShotsOnGoal")]
+        public double ShotsOnGoal { get; set; }
+
+        [JsonProperty("YellowCards")]
+        public double YellowCards { get; set; }
+
+        [JsonProperty("RedCards")]
+        public double RedCards { get; set; }
+
+        [JsonProperty("YellowRedCards")]
+        public double YellowRedCards { get; set; }
+
+        [JsonProperty("Crosses")]
+        public double Crosses { get; set; }
+
+        [JsonProperty("TacklesWon")]
+        public double TacklesWon { get; set; }
+
+        [JsonProperty("Interceptions")]
+        public double Interceptions { get; set; }
+
+        [JsonProperty("OwnGoals")]
+        public double OwnGoals { get; set; }
+
+        [JsonProperty("Fouls")]
+        public double Fouls { get; set; }
+
+        [JsonProperty("Fouled")]
+        public double Fouled { get; set; }
+
+        [JsonProperty("Offsides")]
+        public double Offsides { get; set; }
+
+        [JsonProperty("Passes")]
+        public double Passes { get; set; }
+
+        [JsonProperty("PassesCompleted")]
+        public double PassesCompleted { get; set; }
+
+        [JsonProperty("LastManTackle")]
+        public double LastManTackle { get; set; }
+
+        [JsonProperty("CornersWon")]
+        public double CornersWon { get; set; }
+
+        [JsonProperty("BlockedShots")]
+        public double BlockedShots { get; set; }
+
+        [JsonProperty("Touches")]
+        public double Touches { get; set; }
+
+        [JsonProperty("DefenderCleanSheets")]
+        public double DefenderCleanSheets { get; set; }
+
+        [JsonProperty("GoalkeeperSaves")]
+        public double GoalkeeperSaves { get; set; }
+
+        [JsonProperty("GoalkeeperGoalsAgainst")]
+        public double GoalkeeperGoalsAgainst { get; set; }
+
+        [JsonProperty("GoalkeeperSingleGoalAgainst")]
+        public double GoalkeeperSingleGoalAgainst { get; set; }
+
+        [JsonProperty("GoalkeeperCleanSheets")]
+        public double GoalkeeperCleanSheets { get; set; }
+
+        [JsonProperty("GoalkeeperWins")]
+        public double GoalkeeperWins { get; set; }
+
+        [JsonProperty("PenaltyKickGoals")]
+        public double PenaltyKickGoals { get; set; }
+
+        [JsonProperty("PenaltyKickMisses")]
+        public double PenaltyKickMisses { get; set; }
+
+        [JsonProperty("PenaltyKickSaves")]
+        public double PenaltyKickSaves { get; set; }
+
+        [JsonProperty("PenaltiesWon")]
+        public double PenaltiesWon { get; set; }
+
+        [JsonProperty("PenaltiesConceded")]
+        public double PenaltiesConceded { get; set; }
+
+        [JsonProperty("Score")]
+        public double Score { get; set; }
+
+        [JsonProperty("OpponentScore")]
+        public double OpponentScore { get; set; }
     }
 
-    public enum TeamArea { England };
+    public enum Position { A, D, Gk, M };
 
-    public enum TeamName { ArsenalFc, AstonVillaFc, BrightonHoveAlbionFc, BurnleyFc, ChelseaFc, CrystalPalaceFc, EvertonFc, FulhamFc, LeedsUnitedFc, LeicesterCityFc, LiverpoolFc, ManchesterCityFc, ManchesterUnitedFc, NewcastleUnitedFc, SheffieldUnitedFc, SouthamptonFc, TottenhamHotspurFc, WestBromwichAlbionFc, WestHamUnitedFc, WolverhamptonWanderersFc };
+    public enum Team { AfcBournemouth, ArsenalFc, AstonVillaFc, BrightonHoveAlbionFc, BurnleyFc, ChelseaFc, CrystalPalaceFc, EvertonFc, LeicesterCityFc, LiverpoolFc, ManchesterCityFc, ManchesterUnitedFc, NewcastleUnitedFc, NorwichCityFc, SheffieldUnitedFc, SouthamptonFc, TottenhamHotspurFc, WatfordFc, WestHamUnitedFc, WolverhamptonWanderersFc };
 
     public partial class PlayerInfo
     {
@@ -70,26 +205,33 @@ namespace QuickType
             DateParseHandling = DateParseHandling.None,
             Converters =
             {
-                TeamAreaConverter.Singleton,
-                TeamNameConverter.Singleton,
+                PositionConverter.Singleton,
+                TeamConverter.Singleton,
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
             },
         };
     }
 
-    internal class TeamAreaConverter : JsonConverter
+    internal class PositionConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TeamArea) || t == typeof(TeamArea?);
+        public override bool CanConvert(Type t) => t == typeof(Position) || t == typeof(Position?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
-            if (value == "England")
+            switch (value)
             {
-                return TeamArea.England;
+                case "A":
+                    return Position.A;
+                case "D":
+                    return Position.D;
+                case "GK":
+                    return Position.Gk;
+                case "M":
+                    return Position.M;
             }
-            throw new Exception("Cannot unmarshal type TeamArea");
+            throw new Exception("Cannot unmarshal type Position");
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
@@ -99,21 +241,31 @@ namespace QuickType
                 serializer.Serialize(writer, null);
                 return;
             }
-            var value = (TeamArea)untypedValue;
-            if (value == TeamArea.England)
+            var value = (Position)untypedValue;
+            switch (value)
             {
-                serializer.Serialize(writer, "England");
-                return;
+                case Position.A:
+                    serializer.Serialize(writer, "A");
+                    return;
+                case Position.D:
+                    serializer.Serialize(writer, "D");
+                    return;
+                case Position.Gk:
+                    serializer.Serialize(writer, "GK");
+                    return;
+                case Position.M:
+                    serializer.Serialize(writer, "M");
+                    return;
             }
-            throw new Exception("Cannot marshal type TeamArea");
+            throw new Exception("Cannot marshal type Position");
         }
 
-        public static readonly TeamAreaConverter Singleton = new TeamAreaConverter();
+        public static readonly PositionConverter Singleton = new PositionConverter();
     }
 
-    internal class TeamNameConverter : JsonConverter
+    internal class TeamConverter : JsonConverter
     {
-        public override bool CanConvert(Type t) => t == typeof(TeamName) || t == typeof(TeamName?);
+        public override bool CanConvert(Type t) => t == typeof(Team) || t == typeof(Team?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -121,48 +273,48 @@ namespace QuickType
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
+                case "AFC Bournemouth":
+                    return Team.AfcBournemouth;
                 case "Arsenal FC":
-                    return TeamName.ArsenalFc;
+                    return Team.ArsenalFc;
                 case "Aston Villa FC":
-                    return TeamName.AstonVillaFc;
+                    return Team.AstonVillaFc;
                 case "Brighton & Hove Albion FC":
-                    return TeamName.BrightonHoveAlbionFc;
+                    return Team.BrightonHoveAlbionFc;
                 case "Burnley FC":
-                    return TeamName.BurnleyFc;
+                    return Team.BurnleyFc;
                 case "Chelsea FC":
-                    return TeamName.ChelseaFc;
+                    return Team.ChelseaFc;
                 case "Crystal Palace FC":
-                    return TeamName.CrystalPalaceFc;
+                    return Team.CrystalPalaceFc;
                 case "Everton FC":
-                    return TeamName.EvertonFc;
-                case "Fulham FC":
-                    return TeamName.FulhamFc;
-                case "Leeds United FC":
-                    return TeamName.LeedsUnitedFc;
+                    return Team.EvertonFc;
                 case "Leicester City FC":
-                    return TeamName.LeicesterCityFc;
+                    return Team.LeicesterCityFc;
                 case "Liverpool FC":
-                    return TeamName.LiverpoolFc;
+                    return Team.LiverpoolFc;
                 case "Manchester City FC":
-                    return TeamName.ManchesterCityFc;
+                    return Team.ManchesterCityFc;
                 case "Manchester United FC":
-                    return TeamName.ManchesterUnitedFc;
+                    return Team.ManchesterUnitedFc;
                 case "Newcastle United FC":
-                    return TeamName.NewcastleUnitedFc;
+                    return Team.NewcastleUnitedFc;
+                case "Norwich City FC":
+                    return Team.NorwichCityFc;
                 case "Sheffield United FC":
-                    return TeamName.SheffieldUnitedFc;
+                    return Team.SheffieldUnitedFc;
                 case "Southampton FC":
-                    return TeamName.SouthamptonFc;
+                    return Team.SouthamptonFc;
                 case "Tottenham Hotspur FC":
-                    return TeamName.TottenhamHotspurFc;
-                case "West Bromwich Albion FC":
-                    return TeamName.WestBromwichAlbionFc;
+                    return Team.TottenhamHotspurFc;
+                case "Watford FC":
+                    return Team.WatfordFc;
                 case "West Ham United FC":
-                    return TeamName.WestHamUnitedFc;
+                    return Team.WestHamUnitedFc;
                 case "Wolverhampton Wanderers FC":
-                    return TeamName.WolverhamptonWanderersFc;
+                    return Team.WolverhamptonWanderersFc;
             }
-            throw new Exception("Cannot unmarshal type TeamName");
+            throw new Exception("Cannot unmarshal type Team");
         }
 
         public override void WriteJson(JsonWriter writer, object untypedValue, JsonSerializer serializer)
@@ -172,73 +324,73 @@ namespace QuickType
                 serializer.Serialize(writer, null);
                 return;
             }
-            var value = (TeamName)untypedValue;
+            var value = (Team)untypedValue;
             switch (value)
             {
-                case TeamName.ArsenalFc:
+                case Team.AfcBournemouth:
+                    serializer.Serialize(writer, "AFC Bournemouth");
+                    return;
+                case Team.ArsenalFc:
                     serializer.Serialize(writer, "Arsenal FC");
                     return;
-                case TeamName.AstonVillaFc:
+                case Team.AstonVillaFc:
                     serializer.Serialize(writer, "Aston Villa FC");
                     return;
-                case TeamName.BrightonHoveAlbionFc:
+                case Team.BrightonHoveAlbionFc:
                     serializer.Serialize(writer, "Brighton & Hove Albion FC");
                     return;
-                case TeamName.BurnleyFc:
+                case Team.BurnleyFc:
                     serializer.Serialize(writer, "Burnley FC");
                     return;
-                case TeamName.ChelseaFc:
+                case Team.ChelseaFc:
                     serializer.Serialize(writer, "Chelsea FC");
                     return;
-                case TeamName.CrystalPalaceFc:
+                case Team.CrystalPalaceFc:
                     serializer.Serialize(writer, "Crystal Palace FC");
                     return;
-                case TeamName.EvertonFc:
+                case Team.EvertonFc:
                     serializer.Serialize(writer, "Everton FC");
                     return;
-                case TeamName.FulhamFc:
-                    serializer.Serialize(writer, "Fulham FC");
-                    return;
-                case TeamName.LeedsUnitedFc:
-                    serializer.Serialize(writer, "Leeds United FC");
-                    return;
-                case TeamName.LeicesterCityFc:
+                case Team.LeicesterCityFc:
                     serializer.Serialize(writer, "Leicester City FC");
                     return;
-                case TeamName.LiverpoolFc:
+                case Team.LiverpoolFc:
                     serializer.Serialize(writer, "Liverpool FC");
                     return;
-                case TeamName.ManchesterCityFc:
+                case Team.ManchesterCityFc:
                     serializer.Serialize(writer, "Manchester City FC");
                     return;
-                case TeamName.ManchesterUnitedFc:
+                case Team.ManchesterUnitedFc:
                     serializer.Serialize(writer, "Manchester United FC");
                     return;
-                case TeamName.NewcastleUnitedFc:
+                case Team.NewcastleUnitedFc:
                     serializer.Serialize(writer, "Newcastle United FC");
                     return;
-                case TeamName.SheffieldUnitedFc:
+                case Team.NorwichCityFc:
+                    serializer.Serialize(writer, "Norwich City FC");
+                    return;
+                case Team.SheffieldUnitedFc:
                     serializer.Serialize(writer, "Sheffield United FC");
                     return;
-                case TeamName.SouthamptonFc:
+                case Team.SouthamptonFc:
                     serializer.Serialize(writer, "Southampton FC");
                     return;
-                case TeamName.TottenhamHotspurFc:
+                case Team.TottenhamHotspurFc:
                     serializer.Serialize(writer, "Tottenham Hotspur FC");
                     return;
-                case TeamName.WestBromwichAlbionFc:
-                    serializer.Serialize(writer, "West Bromwich Albion FC");
+                case Team.WatfordFc:
+                    serializer.Serialize(writer, "Watford FC");
                     return;
-                case TeamName.WestHamUnitedFc:
+                case Team.WestHamUnitedFc:
                     serializer.Serialize(writer, "West Ham United FC");
                     return;
-                case TeamName.WolverhamptonWanderersFc:
+                case Team.WolverhamptonWanderersFc:
                     serializer.Serialize(writer, "Wolverhampton Wanderers FC");
                     return;
             }
-            throw new Exception("Cannot marshal type TeamName");
+            throw new Exception("Cannot marshal type Team");
         }
 
-        public static readonly TeamNameConverter Singleton = new TeamNameConverter();
+        public static readonly TeamConverter Singleton = new TeamConverter();
     }
 }
