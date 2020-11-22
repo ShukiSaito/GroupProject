@@ -1,0 +1,60 @@
+﻿@page
+@model GroupProject.Pages.PlayerSalaryModel
+@{ViewData["Title"] = "PlayerSalary";
+    var playerSalaries = (QuickTypeSalary.DfsSlatePlayer[])ViewData["PlayerSalary"];
+    var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+    //var playeraw = (QuickTypePlayertomm.Playermainin[])ViewData["Playermainin"];
+    //List<QuickType.PlayerInfo> playerInfos = (List<QuickType.PlayerInfo>)ViewData["PlayerInfo"];
+
+    //var playerSalaries = (QuickTypeSalary.DfsSlatePlayer[])ViewData["PlayerSalary"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+    <hi class="display-4"> Player Info</hi>
+    <hr />
+    <table border="1" width="90%">
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Team Name</th>
+                <th>Data Joining Team</th>
+                <th>Salary</th>
+                <th>Team</th>
+            </tr>
+        </thead>
+        @{
+
+            foreach (var playerSalary in playerSalaries)
+            // if(playerInfo.PlayerId != null)
+            {
+
+
+                foreach (var x in playerall)
+
+                {
+                    if (playerSalary.PlayerId == x.PlayerId)
+                    {
+                        <tr>
+                            <td>@x.PlayerName</td>
+                            <td>@x.TeamName</td>
+                            <td>@x.StartDate</td>
+                    if (playerSalary.PlayerId == x.PlayerId)
+                            <td>@playerSalary.OperatorSalary</td>
+                            <td>@playerSalary.Team</td>
+                            <td>-</td>
+
+
+
+                        </tr>
+                    }
+                }
+
+            }
+        }
+    </table>
+</div>

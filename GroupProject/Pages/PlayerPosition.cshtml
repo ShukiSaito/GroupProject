@@ -1,0 +1,61 @@
+﻿@page
+@model GroupProject.Pages.PlayerPositionModel
+@{ViewData["Title"] = "PlayerPosition";
+    //var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
+    var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+
+    List<QuickTypePosition.PlayerPosition> playerPositions = (List<QuickTypePosition.PlayerPosition>)ViewData["PlayerPosition"];
+
+
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <div class="text-center">
+        <hi class="display-4"> Player Info</hi>
+        <hr />
+        <table border="1" width="90%">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Team Name</th>
+                    <th>Data Joining Team</th>
+                    <th>Salary</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            @{
+
+                foreach (QuickTypePosition.PlayerPosition playerPosition in playerPositions)
+                // if(playerInfo.PlayerId != null)
+                {
+
+
+                    foreach (var x in playerall)
+
+                    {
+                        if (playerPosition.PlayerId == x.PlayerId)
+                        {
+                            <tr>
+                                <td>@x.PlayerName</td>
+                                <td>@x.TeamName</td>
+                                <td>@x.StartDate</td>
+                                if (playerSalary.PlayerId == x.PlayerId)
+                                <td>@playerPosition.Position</td>
+                                <td>@playerPosition.Jersey</td>
+                                <td>-</td>
+
+
+
+                            </tr>
+                        }
+                    }
+
+                }
+            }
+        </table>
+    </div>
+

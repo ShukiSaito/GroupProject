@@ -2,57 +2,30 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
-    var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
-    //var playeraw = (QuickTypePlayertomm.Playermainin[])ViewData["Playermainin"];
-    //List<QuickType.PlayerInfo> playerInfos = (List<QuickType.PlayerInfo>)ViewData["PlayerInfo"];
+    //var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
+    //var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+
 }
 
-<div class="text-center">
+@*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</div>*@
 
 <div class="text-center">
-    <hi class="display-4"> Player Info</hi>
+    <hi class="display-4"> Soccer Players Information</hi>
     <hr />
     <table border="1" width="90%">
         <thead>
             <tr>
-                <th>Player Name</th>
-                <th>Team Name</th>
-                <th>Data Joining Team</th>
-                <th>Goals</th>
-                <th>Assists</th>
+                <th>
+                    <a href="@Url.Page("/PlayerInfo")">Player Goal Scoring Rate </a>
+                </th>
+                <th>
+                    <a href="@Url.Page("/PlayerPosition")">Player Position and Jersey </a>
+                </th>
             </tr>
         </thead>
-        @{
-
-            foreach (var playerInfo in playerInfos)
-            // if(playerInfo.PlayerId != null)
-            {
-               
-              
-                    foreach (var x in playerall)
-
-                    {
-                        if (playerInfo.PlayerId == x.PlayerId)
-                        {
-                            <tr>
-                                <td>@x.PlayerName</td>
-                                <td>@x.TeamName</td>
-                                <td>@x.StartDate</td>
-                                <td>@playerInfo.Goals</td>
-                                <td>@playerInfo.Assists</td>
-                                <td>-</td>
-
-
-
-                            </tr>
-                        }
-                    }
-                
-            }
-        }
+        
     </table>
 </div>
