@@ -1,10 +1,10 @@
 ﻿@page
 @model GroupProject.Pages.PlayerPositionModel
 @{ViewData["Title"] = "PlayerPosition";
-    //var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
+    var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
     var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
 
-    var playerPositions = (List<QuickTypePosition.PlayerPosition>)ViewData["PlayerPosition"];
+    //List<QuickTypePosition.PlayerPosition> playerPositions = (List<QuickTypePosition.PlayerPosition>)ViewData["PlayerPosition"];
 
 
     }
@@ -43,10 +43,9 @@
                                 <td>@x.PlayerName</td>
                                 <td>@x.TeamName</td>
                                 <td>@x.StartDate</td>
-                                if (playerSalary.PlayerId == x.PlayerId)
-                                <td>@playerPosition.Position</td>
+                                <td>@playerPosition.Position=="d"<td>
                                 <td>@playerPosition.Jersey</td>
-                                <td>-</td>
+                                <td>@playerPosition.-</td>
 
 
 
