@@ -2,11 +2,11 @@
 //
 // To parse this JSON data, add NuGet 'Newtonsoft.Json' then do:
 //
-//    using QuickTypeSalary;
+//    using QuickTypeSalary2;
 //
-//    var playerSalary = PlayerSalary.FromJson(jsonString);
+//    var playerSalary2 = PlayerSalary2.FromJson(jsonString);
 
-namespace QuickTypeSalary
+namespace QuickTypeSalary2
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace QuickTypeSalary
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
-    public partial class PlayerSalary
+    public partial class PlayerSalary2
     {
         [JsonProperty("StatId")]
         public long StatId { get; set; }
@@ -63,7 +63,7 @@ namespace QuickTypeSalary
         public bool Suspension { get; set; }
 
         [JsonProperty("SuspensionReason")]
-        public object SuspensionReason { get; set; }
+        public string SuspensionReason { get; set; }
 
         [JsonProperty("FanDuelSalary")]
         public object FanDuelSalary { get; set; }
@@ -141,13 +141,13 @@ namespace QuickTypeSalary
         public long Games { get; set; }
 
         [JsonProperty("FantasyPoints")]
-        public double? FantasyPoints { get; set; }
+        public double FantasyPoints { get; set; }
 
         [JsonProperty("FantasyPointsFanDuel")]
         public object FantasyPointsFanDuel { get; set; }
 
         [JsonProperty("FantasyPointsDraftKings")]
-        public double? FantasyPointsDraftKings { get; set; }
+        public double FantasyPointsDraftKings { get; set; }
 
         [JsonProperty("FantasyPointsYahoo")]
         public object FantasyPointsYahoo { get; set; }
@@ -159,16 +159,16 @@ namespace QuickTypeSalary
         public double Minutes { get; set; }
 
         [JsonProperty("Goals")]
-        public double? Goals { get; set; }
+        public double Goals { get; set; }
 
         [JsonProperty("Assists")]
-        public double? Assists { get; set; }
+        public long Assists { get; set; }
 
         [JsonProperty("Shots")]
-        public double? Shots { get; set; }
+        public double Shots { get; set; }
 
         [JsonProperty("ShotsOnGoal")]
-        public double? ShotsOnGoal { get; set; }
+        public double ShotsOnGoal { get; set; }
 
         [JsonProperty("YellowCards")]
         public double YellowCards { get; set; }
@@ -262,18 +262,18 @@ namespace QuickTypeSalary
 
     public enum HomeOrAway { Away, Home };
 
-    public enum Opponent { Ast, Bha, Cfc, Mnc, Mnu, New, Tot, Wba };
+    public enum Opponent { Ars, Eve, Ful, Lee, Lei, Liv, She, Whu };
 
     public enum Position { A, D, Gk, M };
 
-    public partial class PlayerSalary
+    public partial class PlayerSalary2
     {
-        public static PlayerSalary[] FromJson(string json) => JsonConvert.DeserializeObject<PlayerSalary[]>(json, QuickTypeSalary.Converter.Settings);
+        public static PlayerSalary2[] FromJson(string json) => JsonConvert.DeserializeObject<PlayerSalary2[]>(json, QuickTypeSalary2.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this PlayerSalary[] self) => JsonConvert.SerializeObject(self, QuickTypeSalary.Converter.Settings);
+        public static string ToJson(this PlayerSalary2[] self) => JsonConvert.SerializeObject(self, QuickTypeSalary2.Converter.Settings);
     }
 
     internal static class Converter
@@ -378,22 +378,22 @@ namespace QuickTypeSalary
             var value = serializer.Deserialize<string>(reader);
             switch (value)
             {
-                case "AST":
-                    return Opponent.Ast;
-                case "BHA":
-                    return Opponent.Bha;
-                case "CFC":
-                    return Opponent.Cfc;
-                case "MNC":
-                    return Opponent.Mnc;
-                case "MNU":
-                    return Opponent.Mnu;
-                case "NEW":
-                    return Opponent.New;
-                case "TOT":
-                    return Opponent.Tot;
-                case "WBA":
-                    return Opponent.Wba;
+                case "ARS":
+                    return Opponent.Ars;
+                case "EVE":
+                    return Opponent.Eve;
+                case "FUL":
+                    return Opponent.Ful;
+                case "LEE":
+                    return Opponent.Lee;
+                case "LEI":
+                    return Opponent.Lei;
+                case "LIV":
+                    return Opponent.Liv;
+                case "SHE":
+                    return Opponent.She;
+                case "WHU":
+                    return Opponent.Whu;
             }
             throw new Exception("Cannot unmarshal type Opponent");
         }
@@ -408,29 +408,29 @@ namespace QuickTypeSalary
             var value = (Opponent)untypedValue;
             switch (value)
             {
-                case Opponent.Ast:
-                    serializer.Serialize(writer, "AST");
+                case Opponent.Ars:
+                    serializer.Serialize(writer, "ARS");
                     return;
-                case Opponent.Bha:
-                    serializer.Serialize(writer, "BHA");
+                case Opponent.Eve:
+                    serializer.Serialize(writer, "EVE");
                     return;
-                case Opponent.Cfc:
-                    serializer.Serialize(writer, "CFC");
+                case Opponent.Ful:
+                    serializer.Serialize(writer, "FUL");
                     return;
-                case Opponent.Mnc:
-                    serializer.Serialize(writer, "MNC");
+                case Opponent.Lee:
+                    serializer.Serialize(writer, "LEE");
                     return;
-                case Opponent.Mnu:
-                    serializer.Serialize(writer, "MNU");
+                case Opponent.Lei:
+                    serializer.Serialize(writer, "LEI");
                     return;
-                case Opponent.New:
-                    serializer.Serialize(writer, "NEW");
+                case Opponent.Liv:
+                    serializer.Serialize(writer, "LIV");
                     return;
-                case Opponent.Tot:
-                    serializer.Serialize(writer, "TOT");
+                case Opponent.She:
+                    serializer.Serialize(writer, "SHE");
                     return;
-                case Opponent.Wba:
-                    serializer.Serialize(writer, "WBA");
+                case Opponent.Whu:
+                    serializer.Serialize(writer, "WHU");
                     return;
             }
             throw new Exception("Cannot marshal type Opponent");

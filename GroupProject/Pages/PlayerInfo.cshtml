@@ -20,9 +20,11 @@
             <tr>
                 <th>Player Name</th>
                 <th>Team Name</th>
+                <th>Active</th>
                 <th>Data Joining Team</th>
                 <th>Goals</th>
                 <th>Assists</th>
+                <th>Fantasy Points</th>
             </tr>
         </thead>
         @{
@@ -37,14 +39,17 @@
                 {
                     if (playerInfo.PlayerId == x.PlayerId)
                     {
-                        <tr>
-                            <td>@x.PlayerName</td>
-                            <td>@x.TeamName</td>
-                            <td>@x.StartDate</td>
-                            <td>@playerInfo.Goals</td>
-                            <td>@playerInfo.Assists</td>                        
+                <tr>
+                    <td>@x.PlayerName</td>
+                    <td>@x.TeamName</td>
+                    <td>@x.Active</td>
+                    <td>@x.StartDate</td>
+                    <td>@playerInfo.Goals</td>
+                    <td>@playerInfo.Assists</td>
+                    <td>@playerInfo.FantasyPoints</td>
+                    
 
-                        </tr>
+                </tr>
                     }
                 }
 
