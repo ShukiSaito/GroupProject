@@ -1,0 +1,278 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/WelcomeElement"
+  },
+  "definitions": {
+    "WelcomeElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "StatId": {
+          "type": "integer"
+        },
+        "SeasonType": {
+          "type": "integer"
+        },
+        "Season": {
+          "type": "integer"
+        },
+        "RoundId": {
+          "type": "integer"
+        },
+        "TeamId": {
+          "type": "integer"
+        },
+        "PlayerId": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ShortName": {
+          "type": "string"
+        },
+        "Team": {
+          "$ref": "#/definitions/Team"
+        },
+        "PositionCategory": {
+          "$ref": "#/definitions/Position"
+        },
+        "Position": {
+          "$ref": "#/definitions/Position"
+        },
+        "Started": {
+          "type": "integer"
+        },
+        "GlobalTeamId": {
+          "type": "integer"
+        },
+        "Updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Games": {
+          "type": "integer"
+        },
+        "FantasyPoints": {
+          "type": "number"
+        },
+        "FantasyPointsFanDuel": {
+          "type": "null"
+        },
+        "FantasyPointsDraftKings": {
+          "type": "number"
+        },
+        "FantasyPointsYahoo": {
+          "type": "null"
+        },
+        "FantasyPointsMondogoal": {
+          "type": "number"
+        },
+        "Minutes": {
+          "type": "number"
+        },
+        "Goals": {
+          "type": "number",
+          "minimum" :  0
+        },
+        "Assists": {
+          "type": "number",
+            "minimum" :  0
+        },
+        "Shots": {
+          "type": "number"
+        },
+        "ShotsOnGoal": {
+          "type": "number"
+        },
+        "YellowCards": {
+          "type": "number"
+        },
+        "RedCards": {
+          "type": "number"
+        },
+        "YellowRedCards": {
+          "type": "number"
+        },
+        "Crosses": {
+          "type": "number"
+        },
+        "TacklesWon": {
+          "type": "number"
+        },
+        "Interceptions": {
+          "type": "number"
+        },
+        "OwnGoals": {
+          "type": "number"
+        },
+        "Fouls": {
+          "type": "number"
+        },
+        "Fouled": {
+          "type": "number"
+        },
+        "Offsides": {
+          "type": "number"
+        },
+        "Passes": {
+          "type": "number"
+        },
+        "PassesCompleted": {
+          "type": "number"
+        },
+        "LastManTackle": {
+          "type": "number"
+        },
+        "CornersWon": {
+          "type": "number"
+        },
+        "BlockedShots": {
+          "type": "number"
+        },
+        "Touches": {
+          "type": "number"
+        },
+        "DefenderCleanSheets": {
+          "type": "number"
+        },
+        "GoalkeeperSaves": {
+          "type": "number"
+        },
+        "GoalkeeperGoalsAgainst": {
+          "type": "number"
+        },
+        "GoalkeeperSingleGoalAgainst": {
+          "type": "number"
+        },
+        "GoalkeeperCleanSheets": {
+          "type": "number"
+        },
+        "GoalkeeperWins": {
+          "type": "number"
+        },
+        "PenaltyKickGoals": {
+          "type": "number"
+        },
+        "PenaltyKickMisses": {
+          "type": "number"
+        },
+        "PenaltyKickSaves": {
+          "type": "number"
+        },
+        "PenaltiesWon": {
+          "type": "number"
+        },
+        "PenaltiesConceded": {
+          "type": "number"
+        },
+        "Score": {
+          "type": "number"
+        },
+        "OpponentScore": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "Assists",
+        "BlockedShots",
+        "CornersWon",
+        "Crosses",
+        "DefenderCleanSheets",
+        "FantasyPoints",
+        "FantasyPointsDraftKings",
+        "FantasyPointsFanDuel",
+        "FantasyPointsMondogoal",
+        "FantasyPointsYahoo",
+        "Fouled",
+        "Fouls",
+        "Games",
+        "GlobalTeamId",
+        "GoalkeeperCleanSheets",
+        "GoalkeeperGoalsAgainst",
+        "GoalkeeperSaves",
+        "GoalkeeperSingleGoalAgainst",
+        "GoalkeeperWins",
+        "Goals",
+        "Interceptions",
+        "LastManTackle",
+        "Minutes",
+        "Name",
+        "Offsides",
+        "OpponentScore",
+        "OwnGoals",
+        "Passes",
+        "PassesCompleted",
+        "PenaltiesConceded",
+        "PenaltiesWon",
+        "PenaltyKickGoals",
+        "PenaltyKickMisses",
+        "PenaltyKickSaves",
+        "PlayerId",
+        "Position",
+        "PositionCategory",
+        "RedCards",
+        "RoundId",
+        "Score",
+        "Season",
+        "SeasonType",
+        "ShortName",
+        "Shots",
+        "ShotsOnGoal",
+        "Started",
+        "StatId",
+        "TacklesWon",
+        "Team",
+        "TeamId",
+        "Touches",
+        "Updated",
+        "UpdatedUtc",
+        "YellowCards",
+        "YellowRedCards"
+      ],
+      "title": "WelcomeElement"
+    },
+    "Position": {
+      "type": "string",
+      "enum": [
+        "M",
+        "D",
+        "A",
+        "GK"
+      ],
+      "title": "Position"
+    },
+    "Team": {
+      "type": "string",
+      "enum": [
+        "AFC Bournemouth",
+        "Arsenal FC",
+        "Aston Villa FC",
+        "Brighton & Hove Albion FC",
+        "Burnley FC",
+        "Chelsea FC",
+        "Crystal Palace FC",
+        "Everton FC",
+        "Leicester City FC",
+        "Liverpool FC",
+        "Manchester City FC",
+        "Manchester United FC",
+        "Newcastle United FC",
+        "Norwich City FC",
+        "Sheffield United FC",
+        "Southampton FC",
+        "Tottenham Hotspur FC",
+        "Watford FC",
+        "West Ham United FC",
+        "Wolverhampton Wanderers FC"
+      ],
+      "title": "Team"
+    }
+  }
+}
