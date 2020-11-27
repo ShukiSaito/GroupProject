@@ -1,0 +1,126 @@
+﻿@page
+@model GroupProject.Pages.PlayerLists.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].GoalKeeper1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].GoalKeeper2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Defender1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Defender2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Defender3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Defender4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Midfield1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Midfield2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Midfield3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Forward1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Forward2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].Forward3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].DefenderMidfieldForward1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].DefenderMidfieldForward2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].DefenderMidfieldForward3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerList[0].PlayerSelection)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PlayerList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoalKeeper1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoalKeeper2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defender1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defender2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defender3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Defender4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Midfield1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Midfield2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Midfield3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forward1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forward2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forward3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefenderMidfieldForward1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefenderMidfieldForward2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefenderMidfieldForward3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerSelection.PlayerSelctionId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PlayerListId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PlayerListId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PlayerListId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

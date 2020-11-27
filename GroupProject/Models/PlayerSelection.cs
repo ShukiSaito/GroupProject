@@ -5,13 +5,11 @@ using System.Threading.Tasks;
 
 namespace GroupProject.Models
 {
-    public class PlayerSelection
+    public class PlayerSelction
     {
-        public Member MemberId { get; set; }
-        public int PlayerSelectionId { get; set; }
-        public List<PlayerList> PlayerIds { get; set; }
-        public DateTime DateCreated { get; set; }
-        public int MemberIdId { get; set; }
+        public int PlayerSelctionId { get; set; }
+        public List<PlayerList> PlayerLists { get; set; }
+        public Member Member { get; set; }
 
     }
 }

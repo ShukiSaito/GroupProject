@@ -15,5 +15,9 @@ namespace GroupProject.Data
         }
 
         public DbSet<GroupProject.Models.Member> Member { get; set; }
+
+        public DbSet<GroupProject.Models.PlayerList> PlayerList { get; set; }
+
+        public DbSet<GroupProject.Models.PlayerSelction> PlayerSelction { get; set; }
     }
 }
