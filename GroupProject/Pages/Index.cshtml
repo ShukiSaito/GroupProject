@@ -1,19 +1,60 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Soccer Player Information";
     //var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
     //var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
-
 }
 
+
 @*<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<style>
+    .topImage{
+        width: 100%;
+        height: 400px;
+        margin-top: 50px;
+    }
+
+    .bottomImage {
+        width: 350px;
+        height: 200px;
+    }
+
+    h2{
+        margin-top: 50px;
+        margin-bottom:50px;
+    }
+    
+    h4{
+        margin-top: 50px;
+    }
+
+    .paragraph{
+        margin-bottom: 90px;
+    }
+
+    #bestPlayer{
+        color: red;
+    }
+
+    h5 {
+        color: #F5A73F;
+    }
+
+</style>
+
 
 <div class="text-center">
-    <hi class="display-4"> Soccer Players Information</hi>
+    <h1 class="display-4"> Soccer Players Information</h1>
+
+    <img class="topImage" src="~/Images/Image1.jpg" alt="SoccerPlayPic" />
+
+    <h2>Find your new player!</h2>
+
     <hr />
     <table border="1" width="90%">
         <thead>
@@ -27,9 +68,23 @@
                 <th>
                     <a href="@Url.Page("/PlayerSalary")">Player Salary </a>
                 </th>
-                
+
             </tr>
         </thead>
-        
     </table>
+    <br />
+    <div>Access to the player list by category!</div>
+    <hr />
+
+    <div class="paragraph">
+        <h4><em>Pleyer</em> is the most important factor for victories of your team</h4>
+        <p>Soccer is one of the biggest sports in the world today, and there are thousands of soccer players around the world.</p>
+        <p><a id="bestPlayer">Finding a best fit player</a> for your team is the most critical thing for your victory, but also most difficult job that your team has to commit.</p>
+        <p>But it is also the most difficult job because There is a huge variety of players, and each player has different skills and features.</p>
+        <h5>This website will help you!</h5>
+        <p>We prepared players list sorted by categories. Access to the lists through the links above!</p>
+    </div>
+
+    <img class="bottomImage" src="~/Images/Image2.jpg" alt="SoccerBallPic" />
+
 </div>
