@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Member\**" />
+    <Compile Remove="Pages\PlayerList\**" />
+    <Compile Remove="Pages\PlayerSelection\**" />
+    <Content Remove="Pages\Member\**" />
+    <Content Remove="Pages\PlayerList\**" />
+    <Content Remove="Pages\PlayerSelection\**" />
+    <EmbeddedResource Remove="Pages\Member\**" />
+    <EmbeddedResource Remove="Pages\PlayerList\**" />
+    <EmbeddedResource Remove="Pages\PlayerSelection\**" />
+    <None Remove="Pages\Member\**" />
+    <None Remove="Pages\PlayerList\**" />
+    <None Remove="Pages\PlayerSelection\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Root.cs" />
   </ItemGroup>
 
@@ -21,9 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Member\" />
-    <Folder Include="Pages\PlayerSelection\" />
-    <Folder Include="Pages\PlayerList\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

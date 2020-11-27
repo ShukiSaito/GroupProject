@@ -1,0 +1,110 @@
+﻿@page
+@model GroupProject.Pages.PlayerLists.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PlayerList</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PlayerList.PlayerListId" />
+            <div class="form-group">
+                <label asp-for="PlayerList.GoalKeeper1" class="control-label"></label>
+                <input asp-for="PlayerList.GoalKeeper1" class="form-control" />
+                <span asp-validation-for="PlayerList.GoalKeeper1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.GoalKeeper2" class="control-label"></label>
+                <input asp-for="PlayerList.GoalKeeper2" class="form-control" />
+                <span asp-validation-for="PlayerList.GoalKeeper2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Defender1" class="control-label"></label>
+                <input asp-for="PlayerList.Defender1" class="form-control" />
+                <span asp-validation-for="PlayerList.Defender1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Defender2" class="control-label"></label>
+                <input asp-for="PlayerList.Defender2" class="form-control" />
+                <span asp-validation-for="PlayerList.Defender2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Defender3" class="control-label"></label>
+                <input asp-for="PlayerList.Defender3" class="form-control" />
+                <span asp-validation-for="PlayerList.Defender3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Defender4" class="control-label"></label>
+                <input asp-for="PlayerList.Defender4" class="form-control" />
+                <span asp-validation-for="PlayerList.Defender4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Midfield1" class="control-label"></label>
+                <input asp-for="PlayerList.Midfield1" class="form-control" />
+                <span asp-validation-for="PlayerList.Midfield1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Midfield2" class="control-label"></label>
+                <input asp-for="PlayerList.Midfield2" class="form-control" />
+                <span asp-validation-for="PlayerList.Midfield2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Midfield3" class="control-label"></label>
+                <input asp-for="PlayerList.Midfield3" class="form-control" />
+                <span asp-validation-for="PlayerList.Midfield3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Forward1" class="control-label"></label>
+                <input asp-for="PlayerList.Forward1" class="form-control" />
+                <span asp-validation-for="PlayerList.Forward1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Forward2" class="control-label"></label>
+                <input asp-for="PlayerList.Forward2" class="form-control" />
+                <span asp-validation-for="PlayerList.Forward2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.Forward3" class="control-label"></label>
+                <input asp-for="PlayerList.Forward3" class="form-control" />
+                <span asp-validation-for="PlayerList.Forward3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.DefenderMidfieldForward1" class="control-label"></label>
+                <input asp-for="PlayerList.DefenderMidfieldForward1" class="form-control" />
+                <span asp-validation-for="PlayerList.DefenderMidfieldForward1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.DefenderMidfieldForward2" class="control-label"></label>
+                <input asp-for="PlayerList.DefenderMidfieldForward2" class="form-control" />
+                <span asp-validation-for="PlayerList.DefenderMidfieldForward2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.DefenderMidfieldForward3" class="control-label"></label>
+                <input asp-for="PlayerList.DefenderMidfieldForward3" class="form-control" />
+                <span asp-validation-for="PlayerList.DefenderMidfieldForward3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerList.PlayerSelectionId" class="control-label"></label>
+                <select asp-for="PlayerList.PlayerSelectionId" class="form-control" asp-items="ViewBag.PlayerSelectionId"></select>
+                <span asp-validation-for="PlayerList.PlayerSelectionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
