@@ -1,0 +1,403 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/PlayerSalary2Element"
+  },
+  "definitions": {
+    "PlayerSalary2Element": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "StatId": {
+          "type": "integer"
+        },
+        "SeasonType": {
+          "type": "integer"
+        },
+        "Season": {
+          "type": "integer"
+        },
+        "RoundId": {
+          "type": "integer"
+        },
+        "TeamId": {
+          "type": "integer"
+        },
+        "PlayerId": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ShortName": {
+          "type": "string"
+        },
+        "Team": {
+          "$ref": "#/definitions/Opponent"
+        },
+        "PositionCategory": {
+          "$ref": "#/definitions/Position"
+        },
+        "Position": {
+          "$ref": "#/definitions/Position"
+        },
+        "Jersey": {
+          "type": "null"
+        },
+        "Started": {
+          "type": "integer"
+        },
+        "Captain": {
+          "type": "boolean"
+        },
+        "Suspension": {
+          "type": "boolean"
+        },
+        "SuspensionReason": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "FanDuelSalary": {
+          "type": "null"
+        },
+        "DraftKingsSalary": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "YahooSalary": {
+          "type": "null"
+        },
+        "MondogoalSalary": {
+          "type": "null"
+        },
+        "FanDuelPosition": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "DraftKingsPosition": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "YahooPosition": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "MondogoalPosition": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "InjuryStatus": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "InjuryBodyPart": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "InjuryNotes": {
+          "$ref": "#/definitions/DraftKingsPosition"
+        },
+        "InjuryStartDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "GlobalTeamId": {
+          "type": "integer"
+        },
+        "GameId": {
+          "type": "integer"
+        },
+        "OpponentId": {
+          "type": "integer"
+        },
+        "Opponent": {
+          "$ref": "#/definitions/Opponent"
+        },
+        "Day": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "DateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "HomeOrAway": {
+          "$ref": "#/definitions/HomeOrAway"
+        },
+        "IsGameOver": {
+          "type": "boolean"
+        },
+        "GlobalGameId": {
+          "type": "integer"
+        },
+        "GlobalOpponentId": {
+          "type": "integer"
+        },
+        "Updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "UpdatedUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Games": {
+          "type": "integer"
+        },
+        "FantasyPoints": {
+          "type": "number"
+        },
+        "FantasyPointsFanDuel": {
+          "type": "null"
+        },
+        "FantasyPointsDraftKings": {
+          "type": "number"
+        },
+        "FantasyPointsYahoo": {
+          "type": "null"
+        },
+        "FantasyPointsMondogoal": {
+          "type": "number"
+        },
+        "Minutes": {
+          "type": "number"
+        },
+        "Goals": {
+          "type": "number"
+        },
+        "Assists": {
+          "type": "integer"
+        },
+        "Shots": {
+          "type": "number"
+        },
+        "ShotsOnGoal": {
+          "type": "number"
+        },
+        "YellowCards": {
+          "type": "number"
+        },
+        "RedCards": {
+          "type": "integer"
+        },
+        "YellowRedCards": {
+          "type": "integer"
+        },
+        "Crosses": {
+          "type": "number"
+        },
+        "TacklesWon": {
+          "type": "number"
+        },
+        "Interceptions": {
+          "type": "number"
+        },
+        "OwnGoals": {
+          "type": "integer"
+        },
+        "Fouls": {
+          "type": "number"
+        },
+        "Fouled": {
+          "type": "number"
+        },
+        "Offsides": {
+          "type": "integer"
+        },
+        "Passes": {
+          "type": "integer"
+        },
+        "PassesCompleted": {
+          "type": "number"
+        },
+        "LastManTackle": {
+          "type": "integer"
+        },
+        "CornersWon": {
+          "type": "integer"
+        },
+        "BlockedShots": {
+          "type": "integer"
+        },
+        "Touches": {
+          "type": "integer"
+        },
+        "DefenderCleanSheets": {
+          "type": "number"
+        },
+        "GoalkeeperSaves": {
+          "type": "number"
+        },
+        "GoalkeeperGoalsAgainst": {
+          "type": "number"
+        },
+        "GoalkeeperSingleGoalAgainst": {
+          "type": "number"
+        },
+        "GoalkeeperCleanSheets": {
+          "type": "number"
+        },
+        "GoalkeeperWins": {
+          "type": "number"
+        },
+        "PenaltyKickGoals": {
+          "type": "integer"
+        },
+        "PenaltyKickMisses": {
+          "type": "integer"
+        },
+        "PenaltyKickSaves": {
+          "type": "integer"
+        },
+        "PenaltiesWon": {
+          "type": "integer"
+        },
+        "PenaltiesConceded": {
+          "type": "integer"
+        },
+        "Score": {
+          "type": "number"
+        },
+        "OpponentScore": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "Assists",
+        "BlockedShots",
+        "Captain",
+        "CornersWon",
+        "Crosses",
+        "DateTime",
+        "Day",
+        "DefenderCleanSheets",
+        "DraftKingsPosition",
+        "DraftKingsSalary",
+        "FanDuelPosition",
+        "FanDuelSalary",
+        "FantasyPoints",
+        "FantasyPointsDraftKings",
+        "FantasyPointsFanDuel",
+        "FantasyPointsMondogoal",
+        "FantasyPointsYahoo",
+        "Fouled",
+        "Fouls",
+        "GameId",
+        "Games",
+        "GlobalGameId",
+        "GlobalOpponentId",
+        "GlobalTeamId",
+        "GoalkeeperCleanSheets",
+        "GoalkeeperGoalsAgainst",
+        "GoalkeeperSaves",
+        "GoalkeeperSingleGoalAgainst",
+        "GoalkeeperWins",
+        "Goals",
+        "HomeOrAway",
+        "InjuryBodyPart",
+        "InjuryNotes",
+        "InjuryStartDate",
+        "InjuryStatus",
+        "Interceptions",
+        "IsGameOver",
+        "Jersey",
+        "LastManTackle",
+        "Minutes",
+        "MondogoalPosition",
+        "MondogoalSalary",
+        "Name",
+        "Offsides",
+        "Opponent",
+        "OpponentId",
+        "OpponentScore",
+        "OwnGoals",
+        "Passes",
+        "PassesCompleted",
+        "PenaltiesConceded",
+        "PenaltiesWon",
+        "PenaltyKickGoals",
+        "PenaltyKickMisses",
+        "PenaltyKickSaves",
+        "PlayerId",
+        "Position",
+        "PositionCategory",
+        "RedCards",
+        "RoundId",
+        "Score",
+        "Season",
+        "SeasonType",
+        "ShortName",
+        "Shots",
+        "ShotsOnGoal",
+        "Started",
+        "StatId",
+        "Suspension",
+        "SuspensionReason",
+        "TacklesWon",
+        "Team",
+        "TeamId",
+        "Touches",
+        "Updated",
+        "UpdatedUtc",
+        "YahooPosition",
+        "YahooSalary",
+        "YellowCards",
+        "YellowRedCards"
+      ],
+      "title": "PlayerSalary2Element"
+    },
+    "DraftKingsPosition": {
+      "type": "string",
+      "enum": [
+        "Scrambled"
+      ],
+      "title": "DraftKingsPosition"
+    },
+    "HomeOrAway": {
+      "type": "string",
+      "enum": [
+        "AWAY",
+        "HOME"
+      ],
+      "title": "HomeOrAway"
+    },
+    "Opponent": {
+      "type": "string",
+      "enum": [
+        "EVE",
+        "LEI",
+        "FUL",
+        "LIV",
+        "WHU",
+        "ARS",
+        "SHE",
+        "LEE"
+      ],
+      "title": "Opponent"
+    },
+    "Position": {
+      "type": "string",
+      "enum": [
+        "D",
+        "M",
+        "A",
+        "GK"
+      ],
+      "title": "Position"
+    }
+  }
+}

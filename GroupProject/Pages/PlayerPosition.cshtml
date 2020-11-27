@@ -23,8 +23,7 @@
                     <th>Player Name</th>
                     <th>Team Name</th>
                     <th>Data Joining Team</th>
-                    <th>Salary</th>
-                    <th>Team</th>
+                    <th>Position</th>
                 </tr>
             </thead>
             @{
@@ -43,13 +42,9 @@
                                 <td>@x.PlayerName</td>
                                 <td>@x.TeamName</td>
                                 <td>@x.StartDate</td>
-                                <td>@playerPosition.Position=="d"<td>
+                                <td>@playerPosition.Position</td>
                                 <td>@playerPosition.Jersey</td>
-                                <td>@playerPosition.-</td>
-
-
-
-                            </tr>
+                             </tr>
                         }
                     }
 

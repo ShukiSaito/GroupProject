@@ -1,0 +1,256 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/WelcomeElement"
+  },
+  "definitions": {
+    "WelcomeElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PlayerId": {
+          "type": "integer"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "CommonName": {
+          "type": "string"
+        },
+        "ShortName": {
+          "type": "string"
+        },
+        "Position": {
+          "$ref": "#/definitions/Position"
+        },
+        "PositionCategory": {
+          "$ref": "#/definitions/Position"
+        },
+        "Jersey": {
+          "type": "integer",
+            "minimum": 1,
+            "maximum" :  100
+        },
+        "Foot": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Foot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "Height": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "Weight": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "Gender": {
+          "$ref": "#/definitions/Gender"
+        },
+        "BirthDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "BirthCity": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "BirthCountry": {
+          "type": "string"
+        },
+        "Nationality": {
+          "type": "string"
+        },
+        "InjuryStatus": {
+          "$ref": "#/definitions/Injury"
+        },
+        "InjuryBodyPart": {
+          "$ref": "#/definitions/Injury"
+        },
+        "InjuryNotes": {
+          "$ref": "#/definitions/Injury"
+        },
+        "InjuryStartDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "Updated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "PhotoUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        },
+        "RotoWirePlayerID": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "DraftKingsPosition": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Position"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "UsaTodayPlayerID": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "UsaTodayHeadshotUrl": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "qt-uri-protocols": [
+                "http"
+              ]
+            }
+          ]
+        },
+        "UsaTodayHeadshotNoBackgroundUrl": {
+          "type": "null"
+        },
+        "UsaTodayHeadshotUpdated": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "UsaTodayHeadshotNoBackgroundUpdated": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "BirthCity",
+        "BirthCountry",
+        "BirthDate",
+        "CommonName",
+        "DraftKingsPosition",
+        "FirstName",
+        "Foot",
+        "Gender",
+        "Height",
+        "InjuryBodyPart",
+        "InjuryNotes",
+        "InjuryStartDate",
+        "InjuryStatus",
+        "Jersey",
+        "LastName",
+        "Nationality",
+        "PhotoUrl",
+        "PlayerId",
+        "Position",
+        "PositionCategory",
+        "RotoWirePlayerID",
+        "ShortName",
+        "Updated",
+        "UsaTodayHeadshotNoBackgroundUpdated",
+        "UsaTodayHeadshotNoBackgroundUrl",
+        "UsaTodayHeadshotUpdated",
+        "UsaTodayHeadshotUrl",
+        "UsaTodayPlayerID",
+        "Weight"
+      ],
+      "title": "WelcomeElement"
+    },
+    "Position": {
+      "type": "string",
+      "enum": [
+        "D",
+        "A",
+        "M",
+        "GK",
+        "F",
+        "M/F"
+      ],
+      "title": "Position"
+    },
+    "Foot": {
+      "type": "string",
+      "enum": [
+        "Left",
+        "Right",
+        "Both"
+      ],
+      "title": "Foot"
+    },
+    "Gender": {
+      "type": "string",
+      "enum": [
+        "Male"
+      ],
+      "title": "Gender"
+    },
+    "Injury": {
+      "type": "string",
+      "enum": [
+        "Scrambled"
+      ],
+      "title": "Injury"
+    }
+  }
+}
