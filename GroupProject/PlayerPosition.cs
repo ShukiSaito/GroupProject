@@ -12,8 +12,12 @@ namespace QuickTypePosition
     using System.Collections.Generic;
 
     using System.Globalization;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+
+    
 
     public partial class PlayerPosition
     {
@@ -33,7 +37,7 @@ namespace QuickTypePosition
         public string ShortName { get; set; }
 
         [JsonProperty("Position")]
-        public Position Position { get; set; }
+        public String Position { get; set; }
 
         [JsonProperty("PositionCategory")]
         public Position PositionCategory { get; set; }

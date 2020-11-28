@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using GroupProject.Data;
+using Gtt.Uc.EntityFramework;
+
 
 namespace GroupProject
 {
@@ -27,11 +29,13 @@ namespace GroupProject
         {
             services.AddRazorPages();
 
-            services.AddDbContext<GroupProjectContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("GroupProjectContext")));
+            //services.AddDbContext<GroupProjectContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("GroupProjectContext")));
+            services.AddGttMem <GroupProjectContext> ("144cc44a-b087-408e-897a-d1ae581f6f1f");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

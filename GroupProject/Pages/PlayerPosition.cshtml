@@ -29,14 +29,17 @@
             @{
 
                 foreach (QuickTypePosition.PlayerPosition playerPosition in playerPositions)
-                // if(playerInfo.PlayerId != null)
+                //if(playerInfo.PlayerId != null)
                 {
 
 
+
+                    
                     foreach (var x in playerall)
 
                     {
-                        if (playerPosition.PlayerId == x.PlayerId)
+
+                        if (playerPosition.PlayerId == x.PlayerId && playerPosition.Position == "MF")
                         {
                             <tr>
                                 <td>@x.PlayerName</td>
