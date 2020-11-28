@@ -13,7 +13,12 @@
         <h1 class="display-4">Welcome</h1>
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>
-
+<form>
+    <p>
+        Title:<input type="text" asp-for="SearchString"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
     <div class="text-center">
         <hi class="display-4"> Player Info</hi>
         <hr />
@@ -39,15 +44,16 @@
 
                     {
 
-                        if (playerPosition.PlayerId == x.PlayerId && playerPosition.Position == "MF")
+                        if (playerPosition.PlayerId == x.PlayerId && playerPosition.Position == "M")
                         {
-                            <tr>
-                                <td>@x.PlayerName</td>
-                                <td>@x.TeamName</td>
-                                <td>@x.StartDate</td>
-                                <td>@playerPosition.Position</td>
-                                <td>@playerPosition.Jersey</td>
-                             </tr>
+                        <tr>
+                            <td>@x.PlayerName</td>
+                            <td>@x.TeamName</td>
+                            <td>@x.StartDate</td>
+                            <td>@playerPosition.Position</td>
+                            <td>@playerPosition.Jersey</td>
+                            <td>@playerPosition.Jersey</td>
+                        </tr>
                         }
                     }
 
