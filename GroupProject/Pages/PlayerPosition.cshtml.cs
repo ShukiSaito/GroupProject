@@ -32,7 +32,7 @@ namespace GroupProject.Pages
                 if (PositionArray.IsValid(PositionSchema, out validationPosition))
                 {
                     var playerPosition = PlayerPosition.FromJson(positionString);
-
+                    
                     ViewData["PlayerPosition"] = playerPosition;
                 }
                 else
