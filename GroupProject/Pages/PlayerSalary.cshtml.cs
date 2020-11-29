@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
+using QuickType;
 using QuickTypePlayerStats;
 using QuickTypeSalary;
 using QuickTypeSalary2;
@@ -82,7 +83,25 @@ namespace GroupProject.Pages
                     }
                     ViewData["PlayerStats"] = new List<PlayerStats>();
                 }
+                string InfoString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/stats/json/PlayerSeasonStats/383?key=bc49021bad1943008414c5a75e665961");
 
+                JSchema InfoSchema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
+                JArray InfoArray = JArray.Parse(InfoString);
+                IList<string> validationInfo = new List<string>();
+                if (InfoArray.IsValid(InfoSchema, out validationInfo))
+                {
+                    var playerInfo = PlayerInfo.FromJson(InfoString);
+
+                    ViewData["PlayerInfo"] = playerInfo;
+                }
+                else
+                {
+                    foreach (string evtInfo in validationInfo)
+                    {
+                        Console.WriteLine(evtInfo);
+                    }
+                    ViewData["PlayerInfo"] = new List<PlayerInfo>();
+                }
 
             }
         }

@@ -16,23 +16,8 @@ namespace GroupProject.Pages
     public class PlayerPositionModel : PageModel
     {
         public string SearchString { get; set; }
-        public async Task OnGetAsync()
-        {
-            using (var webClient = new WebClient())
-            {
-                string positionString = webClient.DownloadString("https://raw.githubusercontent.com/ShukiSaito/GroupProject/master/GroupProject/PlayersTeamAndSalary.json");
-                var playerPosition = PlayerPosition.FromJson(positionString);
-                var players = from m in playerPosition
-                              select m;
-                if (!string.IsNullOrEmpty(SearchString))
-                {
-                    players = players.Where(s => s.CommonName.Contains(SearchString));
-                }
-                //players = await players.AsQueryable();
 
-            }
-        }
-            public void OnGet()
+        public void OnGet()
 
         {
 
@@ -51,7 +36,12 @@ namespace GroupProject.Pages
                 if (PositionArray.IsValid(PositionSchema, out validationPosition))
                 {
                     var playerPosition = PlayerPosition.FromJson(positionString);
-                    
+                    var players = from m in playerPosition
+                                  select m;
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        players = players.Where(s => s.CommonName.Contains(SearchString));
+                    }
                     
                     ViewData["PlayerPosition"] = playerPosition;
                 }

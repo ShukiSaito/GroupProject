@@ -1,6 +1,7 @@
 ﻿@page
 @model GroupProject.Pages.PlayerSalaryModel
 @{ViewData["Title"] = "PlayerSalary";
+    var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
     var playerSalaries = (QuickTypeSalary.PlayerSalary[])ViewData["PlayerSalary"];
     var playerSalaries2 = (QuickTypeSalary2.PlayerSalary2[])ViewData["PlayerSalary2"];
     var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
@@ -13,19 +14,22 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <link href="css/addons/datatables.min.css" rel="stylesheet">
+    
 </div>
 
 <div class="text-center">
     <hi class="display-4"> Player Info</hi>
     <hr />
-    <table border="1" width="90%">
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        
         <thead>
             <tr>
                 <th>Player Name</th>
                 <th>Team Name</th>
-                <th>Data Joining Team</th>
+                
                 <th>Salary</th>
-                <th>Team</th>
+                <th>Total Fantasy Points</th>
             </tr>
         </thead>
         @{
@@ -33,55 +37,58 @@
             foreach (var playerSalary in playerSalaries)
             // if(playerInfo.PlayerId != null)
             {
-               foreach (var x in playerall)
 
+                foreach (var i in playerInfos)
+                {
+
+
+                    if (playerSalary.PlayerId == i.PlayerId)
                     {
-                        if (playerSalary.PlayerId == x.PlayerId)
-                        {
                             <tr>
-                                <td>@x.PlayerName</td>
-                                <td>@x.TeamName</td>
-                                <td>@x.StartDate</td>
-                                <td>@playerSalary.YahooSalary</td>
-                                <td>@playerSalary.Day</td>
-                                <td></td>
+                                <td>@i.Name</td>
+                                <td>@i.Team</td>
+                                
+                                <td>@playerSalary.DraftKingsSalary</td>
+                                <td>@i.FantasyPoints</td>
 
 
 
                             </tr>
-                        }
                     }
-                
+                }
+
 
             }
             foreach (var x in playerSalaries2)
             // if(playerInfo.PlayerId != null)
             {
-                    foreach (var i in playerall )
+
+
+                foreach (var j in playerInfos)
+                {
+
+
+
+                    if (x.PlayerId == j.PlayerId)
                     {
-
-
-
-
-                        
-                            if (x.PlayerId == i.PlayerId)
-                            {
                             <tr>
-                                <td>@i.PlayerName</td>
-                                <td>@i.TeamName</td>
-                                <td>@i.StartDate</td>
+                                <td>@j.Name</td>
+                                <td>@j.Team</td>
+                                
 
-                                <td>@x.YahooSalary</td>
-                                <td>@x.Day</td>
-                                <td>@x.Day</td>
+                                <td>@x.DraftKingsSalary</td>
+                                <td>@j.FantasyPoints</td>
+                                
 
 
 
                             </tr>
-                            }
-                        
+                        }
+
                     }
+
+
                 }
             }
-        </table>
+   </table>
 </div>
