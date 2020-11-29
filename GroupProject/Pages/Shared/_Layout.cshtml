@@ -1,34 +1,108 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+            background-color: #333;
+        }
+
+        
+
+            li a, .dropbtn {
+                display: inline-block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover, .dropdown:hover .dropbtn {
+                    background-color: red;
+                }
+
+            li.dropdown {
+                display: inline-block;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            
+        }
+        .header .header-nav ul#nav-account ul.dropdown-menu,
+        .header .header-nav ul#nav-library ul.dropdown-menu {
+            position: relative;
+            z-index: 10000;
+        }
+        .icon {
+            color: green;
+        }
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - GroupProject</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">GroupProject</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    
+    <ul class="navbar">
+
+        <li class="logo" style="float:left;"><img src="../images/fantasy.jpg" height="60" width="120" /></li>
+        <li style="float:left;"><a href="/Index"><i class="fa fa-home"></i>Home</a></li>
+        <li style="float:left;"><a href="/news">News</a></li>
+        <li style="float:left;"><a href="/playerinfo">EPL Players</a></li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn" >Check Positions</a>
+            <div class="dropdown-content">
+                <a href="/GoalKeeper">Goal Keepers</a>
+                <a href="/Defender">Defenders</a>
+                <a href="/Midfilders">Midfielders</a>
+                <a href="/Forward">Fowards</a>
             </div>
-        </nav>
-    </header>
+        </li>
+        <li><a href="/playersalary">Player Value</a></li>
+        <li class="dropdown" style="float:right;">
+            <i class="fa fa-fw fa-user" style="font-size:20px;color:white"></i>
+            <a href="javascript:void(0)" class="dropbtn">Member Access</a>
+            
+            
+            <div class="dropdown-content">
+                <a href="/Members/Create">Create Account</a>
+                <a href="/Members/Index">Access Your Account</a>
+                <a href="/playerselections/create">Create Selection Identification</a>
+                <a href="/playerlists/create">Populate Your Team</a>
+
+            </div>
+        </li>
+    </ul>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
