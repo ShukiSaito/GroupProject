@@ -12,79 +12,59 @@
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>*@
 
-<style>
-    .topImage{
-        width: 100%;
-        height: 400px;
-        margin-top: 50px;
-    }
 
-    .bottomImage {
-        width: 350px;
-        height: 200px;
-    }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    h2{
-        margin-top: 50px;
-        margin-bottom:50px;
-    }
-    
-    h4{
-        margin-top: 50px;
-    }
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
 
-    .paragraph{
-        margin-bottom: 90px;
-    }
+        #myVideo {
+            position:fixed;
+            z-index:-1;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 80%;
+        }
 
-    #bestPlayer{
-        color: red;
-    }
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
 
-    h5 {
-        color: #F5A73F;
-    }
+            
+    </style>
+</head>
 
-</style>
+<body>
 
+    <video autoplay muted loop id="myVideo">
+        <source src="~/Images/Svideo.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-<div class="text-center">
-    <h1 class="display-4"> Soccer Players Information</h1>
-
-    <img class="topImage" src="~/Images/Image1.jpg" alt="SoccerPlayPic" />
-
-    <h2>Find your new player!</h2>
-
-    <hr />
-    <table border="1" width="90%">
-        <thead>
-            <tr>
-                <th>
-                    <a href="@Url.Page("/PlayerInfo")">Player Goal Scoring Rate </a>
-                </th>
-                <th>
-                    <a href="@Url.Page("/PlayerPosition")">Player Position and Jersey </a>
-                </th>
-                <th>
-                    <a href="@Url.Page("/PlayerSalary")">Player Salary </a>
-                </th>
-
-            </tr>
-        </thead>
-    </table>
-    <br />
-    <div>Access to the player list by category!</div>
-    <hr />
-
-    <div class="paragraph">
-        <h4><em>Pleyer</em> is the most important factor for victories of your team</h4>
-        <p>Soccer is one of the biggest sports in the world today, and there are thousands of soccer players around the world.</p>
-        <p><a id="bestPlayer">Finding a best fit player</a> for your team is the most critical thing for your victory, but also most difficult job that your team has to commit.</p>
-        <p>But it is also the most difficult job because there is a huge variety of players, and each player has different skills and features.</p>
-        <h5>This website will help you!</h5>
-        <p>We provide players list sorted by categories. Access to the lists through the links above!</p>
+    <div class="content">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine molestiae, ad mutat oblique delicatissimi pro.</p>
+        
     </div>
 
-    <img class="bottomImage" src="~/Images/Image2.jpg" alt="SoccerBallPic" />
+    <script>
+        var video = document.getElementById("myVideo");
+        video.playbackRate = 1.5;
 
-</div>
+    </script>
+
+</body>

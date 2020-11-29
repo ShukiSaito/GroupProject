@@ -1,0 +1,65 @@
+﻿@page
+@model GroupProject.Pages.GoalKeeperModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
+    var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
+}
+<div class="text-center">
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+<div class="text-center">
+    <hi class="display-4"> Player Info</hi>
+    <hr />
+    <table border="1" width="90%">
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Team Name</th>
+                
+                <th>Clean Sheets</th>
+                <th>Goals Conceded</th>
+                <th>Saves</th>
+                <th>Penalty Saves</th>
+                <th>Wins</th>
+                <th>Games</th>
+                <th>Fantasy Points</th>
+            </tr>
+        </thead>
+        @{
+
+            foreach (var playerInfo in playerInfos)
+            // if(playerInfo.PlayerId != null)
+            {
+
+
+                foreach (var x in playerPositions)
+
+                {
+                    if (playerInfo.PlayerId == x.PlayerId && x.Position == "GK")
+                    {
+                <tr>
+                    <td>@x.FirstName @x.LastName</td>
+                    <td>@playerInfo.Team</td>
+                    
+                    <td>@playerInfo.GoalkeeperCleanSheets</td>
+                    <td>@playerInfo.GoalkeeperGoalsAgainst</td>
+                    <td>@playerInfo.GoalkeeperSaves</td>
+                    <td>@playerInfo.PenaltyKickSaves</td>
+                    <td>@playerInfo.GoalkeeperWins</td>
+                    <td>@playerInfo.Games</td>
+                    <td>@playerInfo.FantasyPoints</td>
+
+
+                </tr>
+                    }
+                }
+
+            }
+        }
+    </table>
+</div>

@@ -1,17 +1,17 @@
 ﻿@page
 @model GroupProject.Pages.PlayerInfoModel
 @{
-        ViewData["Title"] = "Home page";
-        var playerInfos = (QuickType.PlayerInfo[])ViewData["PlayerInfo"];
-        var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
-        
+    ViewData["Title"] = "Home page";
+    var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
+    var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+
 }
 
 <div class="text-center">
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<form nsme="search" method="get" action></form>
+
 
 <div class="text-center">
     <hi class="display-4"> Player Info</hi>
@@ -21,34 +21,43 @@
             <tr>
                 <th>Player Name</th>
                 <th>Team Name</th>
-                <th>Active</th>
                 <th>Data Joining Team</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Fantasy Points</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Nationality</th>
+                
+                <th>Position</th>
+                
             </tr>
         </thead>
         @{
 
-            foreach (var playerInfo in playerInfos)
+            foreach (var playerInfo in playerPositions)
             // if(playerInfo.PlayerId != null)
             {
-
+                var today = DateTime.Today.Year;
+                var dob = today - playerInfo.BirthDate.Year;
 
                 foreach (var x in playerall)
-
                 {
+                    var startdate = x.StartDate.ToShortDateString();
                     if (playerInfo.PlayerId == x.PlayerId)
                     {
                 <tr>
                     <td>@x.PlayerName</td>
                     <td>@x.TeamName</td>
-                    <td>@x.Active</td>
-                    <td>@x.StartDate</td>
-                    <td>@playerInfo.Goals</td>
-                    <td>@playerInfo.Assists</td>
-                    <td>@playerInfo.FantasyPoints</td>
+                    <td>@startdate</td>
+                    <td>@dob</td>
+
+                    <td>@playerInfo.Gender</td>
+                    <td>@playerInfo.Height</td>
+                    <td>@playerInfo.Weight</td>
+                    <td>@playerInfo.Nationality</td>
                     
+                    <td>@playerInfo.Position</td>
+
 
                 </tr>
                     }

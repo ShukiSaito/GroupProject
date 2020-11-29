@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using QuickType;
 using QuickTypePlayerStats;
+using QuickTypePosition;
 
 namespace GroupProject.Pages
 {
@@ -18,27 +19,30 @@ namespace GroupProject.Pages
         {
             using (var webClient = new WebClient())
             {
-                string InfoString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/stats/json/PlayerSeasonStats/383?key=bc49021bad1943008414c5a75e665961");
+                string positionString = webClient.DownloadString("https://raw.githubusercontent.com/ShukiSaito/GroupProject/master/GroupProject/PlayersTeamAndSalary.json");
 
-                JSchema InfoSchema = JSchema.Parse(System.IO.File.ReadAllText("PlayerInfoSchema.json"));
-                JArray InfoArray = JArray.Parse(InfoString);
-                IList<string> validationInfo = new List<string>();
-                if (InfoArray.IsValid(InfoSchema, out validationInfo))
+                //JObject jsonObject = JObject.Parse(playerPositionJson);
+                // var myDeserializedClass = JsonConvert.DeserializeObject<Root>(jsonObject);
+
+                JSchema PositionSchema = JSchema.Parse(System.IO.File.ReadAllText("PlayerPositionSchema.json"));
+                JArray PositionArray = JArray.Parse(positionString);
+                IList<string> validationPosition = new List<string>();
+                if (PositionArray.IsValid(PositionSchema, out validationPosition))
                 {
-                    var playerInfo = PlayerInfo.FromJson(InfoString);
+                    var playerPosition = PlayerPosition.FromJson(positionString);
+                    
 
-                    ViewData["PlayerInfo"] = playerInfo;
-                } 
+                    ViewData["PlayerPosition"] = playerPosition;
+                }
                 else
                 {
-                    foreach(string evtInfo in validationInfo)
+                    foreach (string evtPosition in validationPosition)
                     {
-                        Console.WriteLine(evtInfo);
+                        Console.WriteLine(evtPosition);
                     }
-                    ViewData["PlayerInfo"] = new List<PlayerInfo>();
+                    ViewData["PlayerPosition"] = new List<PlayerPosition>();
                 }
 
-               
 
                 string StatsString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema Statsschema = JSchema.Parse(System.IO.File.ReadAllText("PlayerStatsSchema.json"));

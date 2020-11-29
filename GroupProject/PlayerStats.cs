@@ -39,7 +39,7 @@ namespace QuickTypePlayerStats
         public bool Active { get; set; }
 
         [JsonProperty("StartDate")]
-        public DateTimeOffset StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [JsonProperty("EndDate")]
         public object EndDate { get; set; }
