@@ -20,7 +20,7 @@ namespace GroupProject.Pages
         public void OnGet()
 
         {
-
+            String SearchString = HttpContext.Request.Query["SearchString"];
             using (var webClient = new WebClient())
             {
                 
@@ -36,14 +36,17 @@ namespace GroupProject.Pages
                 if (PositionArray.IsValid(PositionSchema, out validationPosition))
                 {
                     var playerPosition = PlayerPosition.FromJson(positionString);
+                    
+                    ViewData["PlayerPosition"] = playerPosition;
                     var players = from m in playerPosition
                                   select m;
                     if (!string.IsNullOrEmpty(SearchString))
                     {
-                        players = players.Where(s => s.CommonName.Contains(SearchString));
+                        var seachple = players.Where(s => s.CommonName.Contains(SearchString));
+                       
+                        ViewData["PlayerPosition"] = seachple.ToArray();
                     }
                     
-                    ViewData["PlayerPosition"] = playerPosition;
                 }
                 else
                 {
@@ -53,6 +56,9 @@ namespace GroupProject.Pages
                     }
                     ViewData["PlayerPosition"] = new List<PlayerPosition>();
                 }
+
+                
+
 
                 string StatsString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/scores/json/MembershipsByCompetition/EPL?key=bc49021bad1943008414c5a75e665961");
                 JSchema Statsschema = JSchema.Parse(System.IO.File.ReadAllText("PlayerStatsSchema.json"));

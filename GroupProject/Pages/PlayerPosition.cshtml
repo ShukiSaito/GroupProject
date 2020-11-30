@@ -3,6 +3,7 @@
 @{ViewData["Title"] = "PlayerPosition";
     var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
     var playerall = (QuickTypePlayerStats.PlayerStats[])ViewData["PlayerStats"];
+    //var playerserach = (QuickTypePosition.PlayerPosition[])ViewData["players"];
 
     //List<QuickTypePosition.PlayerPosition> playerPositions = (List<QuickTypePosition.PlayerPosition>)ViewData["PlayerPosition"];
 
@@ -13,6 +14,7 @@
         <h1 class="display-4">Welcome</h1>
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>
+
 <form>
     <p>
         Title:<input type="text" asp-for="SearchString"/>
