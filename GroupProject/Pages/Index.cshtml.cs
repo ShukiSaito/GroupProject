@@ -14,7 +14,9 @@ using QuickTypePlayerStats;
 namespace GroupProject.Pages
 {
     public class IndexModel : PageModel
+
     {
+
        // private readonly ILogger<IndexModel> _logger;
         //private object webClient;
 
