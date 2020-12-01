@@ -21,7 +21,6 @@ namespace GroupProject.Pages.Members
 
         public IActionResult OnGet()
         {
-        ViewData["PlayerSelectionId"] = new SelectList(_context.Set<PlayerSelction>(), "PlayerSelctionId", "PlayerSelctionId");
             return Page();
         }
 

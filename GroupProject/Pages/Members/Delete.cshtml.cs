@@ -29,8 +29,7 @@ namespace GroupProject.Pages.Members
                 return NotFound();
             }
 
-            Member = await _context.Member
-                .Include(m => m.PlayerSelection).FirstOrDefaultAsync(m => m.MemberId == id);
+            Member = await _context.Member.FirstOrDefaultAsync(m => m.MemberId == id);
 
             if (Member == null)
             {
