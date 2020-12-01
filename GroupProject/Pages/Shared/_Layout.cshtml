@@ -6,29 +6,28 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            
             background-color: #333;
         }
 
-        .footer{
+        .footer {
             position: fixed;
         }
 
-            li a, .dropbtn {
-                display: inline-block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            li a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
             }
 
-                li a:hover, .dropdown:hover .dropbtn {
-                    background-color: red;
-                }
-
-            li.dropdown {
-                display: inline-block;
-            }
+        li.dropdown {
+            display: inline-block;
+        }
 
         .dropdown-content {
             display: none;
@@ -53,17 +52,18 @@
 
         .dropdown:hover .dropdown-content {
             display: block;
-            
         }
+
         .header .header-nav ul#nav-account ul.dropdown-menu,
         .header .header-nav ul#nav-library ul.dropdown-menu {
             position: relative;
             z-index: 10000;
         }
-        
+
         .icon {
             color: green;
         }
+
         body {
             background-color: deepskyblue;
         }
@@ -75,6 +75,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/main.css" />
 </head>
 <body>
 
