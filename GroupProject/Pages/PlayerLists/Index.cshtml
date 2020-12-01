@@ -59,7 +59,7 @@
                 @Html.DisplayNameFor(model => model.PlayerList[0].DefenderMidfieldForward3)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PlayerList[0].PlayerSelection)
+                @Html.DisplayNameFor(model => model.PlayerList[0].PlayerSelection.PlayerSelctionName)
             </th>
             <th></th>
         </tr>
@@ -113,7 +113,7 @@
                 @Html.DisplayFor(modelItem => item.DefenderMidfieldForward3)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PlayerSelection.PlayerSelctionId)
+                @Html.DisplayFor(modelItem => item.PlayerSelection.PlayerSelctionName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.PlayerListId">Edit</a> |
