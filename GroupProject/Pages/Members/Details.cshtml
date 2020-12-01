@@ -37,6 +37,66 @@
         </dd>
     </dl>
 </div>
+@if(Model.Member.PlayerSelection.PlayerLists.Any())
+{
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].GoalKeeper1)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].GoalKeeper2)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Defender1)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Defender2)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Defender3)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Defender4)</th>
+
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Midfield1)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Midfield2)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Midfield3)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Forward1)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Forward2)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].Forward3)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].DefenderMidfieldForward1)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].DefenderMidfieldForward2)</th>
+                <th> @Html.DisplayNameFor(model => model.Member.PlayerSelection.PlayerLists[0].DefenderMidfieldForward3)</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Member.PlayerSelection.PlayerLists)
+            {
+            <tr>
+                <td>@Html.DisplayNameFor(ModelItem => item.GoalKeeper1) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.GoalKeeper2) </td>
+
+                <td>@Html.DisplayNameFor(ModelItem => item.Defender1) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Defender2) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Defender3) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Defender4) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Midfield1) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Midfield2) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Midfield3) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Forward1) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Forward2) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.Forward3) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.DefenderMidfieldForward1) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.DefenderMidfieldForward2) </td>
+                <td>@Html.DisplayNameFor(ModelItem => item.DefenderMidfieldForward3) </td>
+                <td>
+                    <a asp-page="./PlayerLists/Details" asp-route-id="@Model.Member.MemberId">Edit</a>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+}
+else
+{
+    <div class="alert alert-warning">No Selections Have been made with this Profile.</div>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Member.MemberId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

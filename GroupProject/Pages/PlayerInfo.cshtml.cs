@@ -15,15 +15,22 @@ namespace GroupProject.Pages
 {
     public class PlayerInfoModel : PageModel
     {
+        public string SearchString { get; set; }
+        public string NationalityString { get; set; }
+        public string TeamString { get; set; }
+        
         public void OnGet()
         {
+            String SearchString = HttpContext.Request.Query["SearchString"];
+            String TeamString = HttpContext.Request.Query["TeamString"];
+            String NationalityString = HttpContext.Request.Query["NationalityString"];
             using (var webClient = new WebClient())
             {
                 string positionString = webClient.DownloadString("https://raw.githubusercontent.com/ShukiSaito/GroupProject/master/GroupProject/PlayersTeamAndSalary.json");
 
                 //JObject jsonObject = JObject.Parse(playerPositionJson);
                 // var myDeserializedClass = JsonConvert.DeserializeObject<Root>(jsonObject);
-
+                
                 JSchema PositionSchema = JSchema.Parse(System.IO.File.ReadAllText("PlayerPositionSchema.json"));
                 JArray PositionArray = JArray.Parse(positionString);
                 IList<string> validationPosition = new List<string>();
@@ -33,6 +40,24 @@ namespace GroupProject.Pages
                     
 
                     ViewData["PlayerPosition"] = playerPosition;
+                    var players = from m in playerPosition
+                                  select m;
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        var seachple = players.Where(s => s.CommonName.Contains(SearchString));
+                        
+
+                        
+                        ViewData["PlayerPosition"] = seachple.ToArray();
+                    }
+                    if (!string.IsNullOrEmpty(NationalityString))
+                    {
+                        
+                        var seachple1 = players.Where(s => s.Nationality.Contains(NationalityString));
+
+                        ViewData["PlayerPosition"] = seachple1.ToArray();
+                        
+                    }
                 }
                 else
                 {
@@ -53,6 +78,14 @@ namespace GroupProject.Pages
                     var playerStats = PlayerStats.FromJson(StatsString);
 
                     ViewData["PlayerStats"] = playerStats;
+                    var players = from m in playerStats
+                                  select m;
+                    if (!string.IsNullOrEmpty(TeamString))
+                    {
+                        var seachple = players.Where(s => s.TeamName.Contains(TeamString));
+
+                        ViewData["PlayerStats"] = seachple.ToArray();
+                    }
                 }
                 else
                 {

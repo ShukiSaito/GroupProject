@@ -13,9 +13,16 @@ using QuickTypePosition;
 namespace GroupProject.Pages
 {
     public class GoalKeeperModel : PageModel
+
     {
+        public string SearchString { get; set; }
+        
+        public string TeamString { get; set; }
         public void OnGet()
         {
+            String SearchString = HttpContext.Request.Query["SearchString"];
+            String TeamString = HttpContext.Request.Query["TeamString"];
+            
             using (var webClient = new WebClient())
             {
                 string InfoString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/stats/json/PlayerSeasonStats/383?key=bc49021bad1943008414c5a75e665961");
@@ -28,6 +35,18 @@ namespace GroupProject.Pages
                     var playerInfo = PlayerInfo.FromJson(InfoString);
 
                     ViewData["PlayerInfo"] = playerInfo;
+                    
+                    var players = from m in playerInfo
+                                  select m;
+                    if (!string.IsNullOrEmpty(TeamString))
+                    {
+                        var seachple = players.Where(s => s.Team.Contains(TeamString));
+
+
+
+                        ViewData["PlayerInfo"] = seachple.ToArray();
+                    }
+                    
                 }
                 else
                 {
@@ -53,6 +72,17 @@ namespace GroupProject.Pages
                     var playerPosition = PlayerPosition.FromJson(positionString);
 
                     ViewData["PlayerPosition"] = playerPosition;
+                   
+                    var players = from m in playerPosition
+                                  select m;
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        var seachple = players.Where(s => s.CommonName.Contains(SearchString));
+
+
+
+                        ViewData["PlayerPosition"] = seachple.ToArray();
+                    }
                 }
                 else
                 {

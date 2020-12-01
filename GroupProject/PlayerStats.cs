@@ -30,7 +30,7 @@ namespace QuickTypePlayerStats
         public string PlayerName { get; set; }
 
         [JsonProperty("TeamName")]
-        public TeamName TeamName { get; set; }
+        public string TeamName { get; set; }
 
         [JsonProperty("TeamArea")]
         public TeamArea TeamArea { get; set; }

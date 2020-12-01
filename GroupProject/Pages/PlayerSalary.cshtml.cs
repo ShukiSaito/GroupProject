@@ -16,8 +16,13 @@ namespace GroupProject.Pages
 {
     public class PlayerSalaryModel : PageModel
     {
+        public string SearchString { get; set; }
+
+        public string TeamString { get; set; }
         public void OnGet()
         {
+            String SearchString = HttpContext.Request.Query["SearchString"];
+            String TeamString = HttpContext.Request.Query["TeamString"];
             using (var webClient = new WebClient())
             {
                 string SalaryString = webClient.DownloadString("https://api.sportsdata.io/v3/soccer/projections/json/PlayerGameProjectionStatsByCompetition/EPL/2020-11-21?key=bc49021bad1943008414c5a75e665961");
@@ -29,6 +34,16 @@ namespace GroupProject.Pages
                     var playerSalary = PlayerSalary.FromJson(SalaryString);
 
                     ViewData["PlayerSalary"] = playerSalary;
+                    var players = from m in playerSalary
+                                  select m;
+                    if (!string.IsNullOrEmpty(TeamString))
+                    {
+                        var seachple = players.Where(s => s.Team.Contains(TeamString));
+
+
+
+                        ViewData["PlayerSalary"] = seachple.ToArray();
+                    }
                 }
                 else
                 {
@@ -52,6 +67,16 @@ namespace GroupProject.Pages
                     var playerSalary2 = PlayerSalary2.FromJson(Salary2String);
 
                     ViewData["PlayerSalary2"] = playerSalary2;
+                    var players = from m in playerSalary2
+                                  select m;
+                    if (!string.IsNullOrEmpty(TeamString))
+                    {
+                        var seachple = players.Where(s => s.Team.Contains(TeamString));
+
+
+
+                        ViewData["PlayerSalary2"] = seachple.ToArray();
+                    }
                 }
                 else
                 {
@@ -74,6 +99,16 @@ namespace GroupProject.Pages
                     var playerStats = PlayerStats.FromJson(StatsString);
 
                     ViewData["PlayerStats"] = playerStats;
+                    var players = from m in playerStats
+                                  select m;
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        var seachple = players.Where(s => s.PlayerName.Contains(SearchString));
+
+
+
+                        ViewData["PlayerStats"] = seachple.ToArray();
+                    }
                 }
                 else
                 {
@@ -93,6 +128,16 @@ namespace GroupProject.Pages
                     var playerInfo = PlayerInfo.FromJson(InfoString);
 
                     ViewData["PlayerInfo"] = playerInfo;
+                    var players = from m in playerInfo
+                                  select m;
+                    if (!string.IsNullOrEmpty(SearchString))
+                    {
+                        var seachple = players.Where(s => s.Name.Contains(SearchString));
+
+
+
+                        ViewData["PlayerInfo"] = seachple.ToArray();
+                    }
                 }
                 else
                 {
