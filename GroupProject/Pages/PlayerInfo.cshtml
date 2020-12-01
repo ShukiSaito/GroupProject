@@ -8,15 +8,46 @@
 }
 
 @*<div class="text-center">
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
 
+<br/>
+<p/>
+<form>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Name" asp-for="SearchString">
+
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Nationality" asp-for="NationalityString">
+
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Team" asp-for="TeamString">
+
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+</form>
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        div {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
 
 
 <div class="text-center">
     <hi class="display-4"> Player Info</hi>
     <hr />
-    <table border="1" width="90%">
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Player Name</th>
@@ -27,9 +58,9 @@
                 <th>Height</th>
                 <th>Weight</th>
                 <th>Nationality</th>
-                
+
                 <th>Position</th>
-                
+
             </tr>
         </thead>
         @{
@@ -45,20 +76,20 @@
                     var startdate = x.StartDate.ToShortDateString();
                     if (playerInfo.PlayerId == x.PlayerId)
                     {
-                <tr>
-                    <td>@x.PlayerName</td>
-                    <td>@x.TeamName</td>
-                    <td>@startdate</td>
-                    <td>@dob</td>
-                    <td>@playerInfo.Gender</td>
-                    <td>@playerInfo.Height</td>
-                    <td>@playerInfo.Weight</td>
-                    <td>@playerInfo.Nationality</td>
-                    
-                    <td>@playerInfo.Position</td>
+                        <tr>
+                            <td>@x.PlayerName</td>
+                            <td>@x.TeamName</td>
+                            <td>@startdate</td>
+                            <td>@dob</td>
+                            <td>@playerInfo.Gender</td>
+                            <td>@playerInfo.Height</td>
+                            <td>@playerInfo.Weight</td>
+                            <td>@playerInfo.Nationality</td>
+
+                            <td>@playerInfo.Position</td>
 
 
-                </tr>
+                        </tr>
                     }
                 }
 

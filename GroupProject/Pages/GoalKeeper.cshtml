@@ -7,20 +7,49 @@
     var playerPositions = (QuickTypePosition.PlayerPosition[])ViewData["PlayerPosition"];
 }
 @*<div class="text-center">
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>*@
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
 
+<br />
+<p />
+<form>
+    <div class="form-row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Name" asp-for="SearchString">
+
+        </div>
+        
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Team" asp-for="TeamString">
+
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </div>
+</form>
+
+
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        div {
+            background-color: darkgrey;
+        }
+    </style>
+</head>
 
 
 <div class="text-center">
     <hi class="display-4"> Goal Keepers Info</hi>
     <hr />
-    <table border="1" width="90%">
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Player Name</th>
                 <th>Team Name</th>
-                
+
                 <th>Clean Sheets</th>
                 <th>Goals Conceded</th>
                 <th>Saves</th>
@@ -42,20 +71,20 @@
                 {
                     if (playerInfo.PlayerId == x.PlayerId && x.Position == "GK")
                     {
-                <tr>
-                    <td>@x.FirstName @x.LastName</td>
-                    <td>@playerInfo.Team</td>
-                    
-                    <td>@playerInfo.GoalkeeperCleanSheets</td>
-                    <td>@playerInfo.GoalkeeperGoalsAgainst</td>
-                    <td>@playerInfo.GoalkeeperSaves</td>
-                    <td>@playerInfo.PenaltyKickSaves</td>
-                    <td>@playerInfo.GoalkeeperWins</td>
-                    <td>@playerInfo.Games</td>
-                    <td>@playerInfo.FantasyPoints</td>
+                        <tr>
+                            <td>@x.FirstName @x.LastName</td>
+                            <td>@playerInfo.Team</td>
+
+                            <td>@playerInfo.GoalkeeperCleanSheets</td>
+                            <td>@playerInfo.GoalkeeperGoalsAgainst</td>
+                            <td>@playerInfo.GoalkeeperSaves</td>
+                            <td>@playerInfo.PenaltyKickSaves</td>
+                            <td>@playerInfo.GoalkeeperWins</td>
+                            <td>@playerInfo.Games</td>
+                            <td>@playerInfo.FantasyPoints</td>
 
 
-                </tr>
+                        </tr>
                     }
                 }
 

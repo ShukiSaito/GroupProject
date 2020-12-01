@@ -42,7 +42,7 @@ namespace QuickTypeSalary
         public string ShortName { get; set; }
 
         [JsonProperty("Team")]
-        public Opponent Team { get; set; }
+        public string Team { get; set; }
 
         [JsonProperty("PositionCategory")]
         public Position PositionCategory { get; set; }

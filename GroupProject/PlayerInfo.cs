@@ -42,7 +42,7 @@ namespace QuickType
         public string ShortName { get; set; }
 
         [JsonProperty("Team")]
-        public Team Team { get; set; }
+        public string Team { get; set; }
 
         [JsonProperty("PositionCategory")]
         public Position PositionCategory { get; set; }
