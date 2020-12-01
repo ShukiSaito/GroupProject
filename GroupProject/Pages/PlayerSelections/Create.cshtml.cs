@@ -21,6 +21,7 @@ namespace GroupProject.Pages.PlayerSelections
 
         public IActionResult OnGet()
         {
+        ViewData["Memberid"] = new SelectList(_context.Member, "MemberId", "MemberId");
             return Page();
         }
 

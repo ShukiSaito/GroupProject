@@ -13,12 +13,24 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerSelction[0].PlayerSelctionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerSelction[0].Member)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.PlayerSelction) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerSelctionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.MemberId)
+            </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.PlayerSelctionId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.PlayerSelctionId">Details</a> |
