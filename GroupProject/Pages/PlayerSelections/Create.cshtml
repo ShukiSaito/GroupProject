@@ -5,14 +5,22 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create Identification of Your Selection</h1>
 
-<h4>PlayerSelction</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerSelction.PlayerSelctionName" class="control-label"></label>
+                <input asp-for="PlayerSelction.PlayerSelctionName" class="form-control" />
+                <span asp-validation-for="PlayerSelction.PlayerSelctionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerSelction.Memberid" class="control-label"></label>
+                <select asp-for="PlayerSelction.Memberid" class ="form-control" asp-items="ViewBag.Memberid"></select>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

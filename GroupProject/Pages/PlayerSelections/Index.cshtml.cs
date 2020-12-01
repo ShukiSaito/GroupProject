@@ -23,7 +23,8 @@ namespace GroupProject.Pages.PlayerSelections
 
         public async Task OnGetAsync()
         {
-            PlayerSelction = await _context.PlayerSelction.ToListAsync();
+            PlayerSelction = await _context.PlayerSelction
+                .Include(p => p.Member).ToListAsync();
         }
     }
 }

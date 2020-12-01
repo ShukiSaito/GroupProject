@@ -30,12 +30,14 @@ namespace GroupProject.Pages.PlayerSelections
                 return NotFound();
             }
 
-            PlayerSelction = await _context.PlayerSelction.FirstOrDefaultAsync(m => m.PlayerSelctionId == id);
+            PlayerSelction = await _context.PlayerSelction
+                .Include(p => p.Member).FirstOrDefaultAsync(m => m.PlayerSelctionId == id);
 
             if (PlayerSelction == null)
             {
                 return NotFound();
             }
+           ViewData["Memberid"] = new SelectList(_context.Member, "MemberId", "MemberId");
             return Page();
         }
 
